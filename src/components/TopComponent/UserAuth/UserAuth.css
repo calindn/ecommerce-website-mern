@@ -1,0 +1,18 @@
+.userauth-container {
+    width: 50px;
+
+}
+
+.userauth-container i {
+    color: white;
+    background-color: #1E88E5;
+    font-size: 14px;
+    padding: 7px;
+    transition: .2s ease-in;
+    height: 27.28px;
+    margin-top: 1.59px;
+}
+.userauth-container i:hover {
+    cursor: pointer;
+    background-color: #000000;
+}

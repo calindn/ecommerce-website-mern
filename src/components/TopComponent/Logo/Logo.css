@@ -1,0 +1,12 @@
+.logo-container  {
+    font-size: 1.5rem;
+    width: 160px;
+    min-height: 20px;
+    position: relative;
+    top: 2.5px;
+    right: 47px;
+}
+#shop {
+    color: #1E88E5;
+    font-weight: 700;
+}
