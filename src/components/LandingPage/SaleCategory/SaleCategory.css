@@ -1,0 +1,10 @@
+.salecateg-container {
+    position: relative;
+    top: 12vh;
+    height: 55vh;
+    width: 78.5vw;
+    margin: auto;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+}

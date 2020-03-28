@@ -4,11 +4,14 @@ import MainImageSlider from './MainImageSlider/MainImageSlider'
 import './LandingPage.css'
 
 // assets 
-import slide1 from './MainImageSlider/assets/slide1.jpg'
-import slide2 from './MainImageSlider/assets/slide2.jpg'
-import slide3 from './MainImageSlider/assets/slide3.jpg'
-import slide4 from './MainImageSlider/assets/slide4.jpg'
-import slide5 from './MainImageSlider/assets/slide5.jpg'
+import slide1 from './MainImageSlider/assets/slide_11.jpg'
+import slide2 from './MainImageSlider/assets/slide_22.png'
+import slide3 from './MainImageSlider/assets/slide_3.jpg'
+import CategoryList from './CategoryList/CategoryList'
+import SaleCategory from './SaleCategory/SaleCategory'
+import NewProductsList from './NewProductsList/NewProductsList'
+import ShipingInformation from './ShipingInformation/ShipingInformation'
+import FooterComponent from './FooterComponent/FooterComponent'
 
 // create styles object
 const s = {
@@ -19,13 +22,18 @@ const s = {
 };
 
 // slide data 
-const slides = [slide1, slide2, slide3, slide4, slide5];
+const slides = [slide1, slide2, slide3];
 
 export default class LandingPage extends Component {
     render() {
         return (
-            <div className='wtf'>
+            <div className='slider-container'>
                 <MainImageSlider slides={slides} />
+                <CategoryList />
+                <SaleCategory />
+                <NewProductsList />
+                <ShipingInformation />
+                <FooterComponent />
             </div>
         )
     }

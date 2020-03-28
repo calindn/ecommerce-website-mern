@@ -1,0 +1,8 @@
+.categlist-container {
+    width: 80vw;
+    height: 88vh;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}

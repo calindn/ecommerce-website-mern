@@ -1,18 +1,26 @@
-import React, { memo } from 'react'
-import Dot from './Dot'
+//===========================================
+// IMPORT DEPENDENCIES
+//===========================================
+import React, { memo } from "react";
+import Dot from "./Dot";
 
-// style object
+//===========================================
+// STYLE OBJECT
+//===========================================
 const s = {
-    container: 'fullW height70 abs bot0 fCenter black50'
-}
+    container: "fullW height70 abs bot0 fCenter "
+};
 
+//===========================================
+// DOTS FUNCTIONAL COMPONENT
+//===========================================
 const Dots = ({ slideId, slides }) => {
     return (
         <div className={s.container}>
-            <div className='row'>
-                {slides.map((slide, id) => {
-                    return <Dot slideId={slideId} dotId={id} key={id} />
-                })}
+            <div className="row">
+                {slides.map((slide, id) => (
+                    <Dot slideId={slideId} dotId={id} key={id} />
+                ))}
             </div>
         </div>
     );
