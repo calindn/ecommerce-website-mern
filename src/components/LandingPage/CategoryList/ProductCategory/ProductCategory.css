@@ -31,4 +31,14 @@
     top: 10.4vh;
     left: 0.9vw;
     font-weight: bold;
+    cursor: pointer;
+    transition: .3s ease;
+}
+.productcateg-container .wrapper-tablets-i .tablets:hover {
+    color: #1E88E5;
+}
+.productcateg-container .wrapper-tablets-i .icon-wrapper {
+    position: relative;
+    top: 2vh;
+    cursor: pointer;
 }

@@ -1,7 +1,6 @@
 .content-container {
-    border: 2px solid red;
     width: 98.9vw;
-    height: 60vh;
+    height: 52vh;
     position: relative;
     top: 40vh;
     display: flex;
@@ -28,7 +27,7 @@
     position: relative;
     width: 16vw;
     left: 7vw;
-    bottom: 7vh;
+    bottom: 2vh;
     color: #7d7d7d;
 }
 
@@ -51,7 +50,13 @@
 }
 .content-container .content2 .fc-c2-ul-container {
     position: relative;
-    bottom: 15vh;
+    bottom: 10vh;
+}
+.content-container .content2 .fc-c2-ul-container ul li {
+    transition: all .1s ease-in-out;
+}
+.content-container .content2 .fc-c2-ul-container ul li:hover {
+    color: white;
 }
 .content-container .content2  .fc-c2-heading {
     position: relative;
@@ -75,7 +80,13 @@
 }
 .content-container .content3 .fc-c3-ul-container {
     position: relative;
-    bottom: 15vh;
+    bottom: 10vh;
+}
+.content-container .content3 .fc-c3-ul-container ul li {
+    transition: all .1s ease-in-out;
+}
+.content-container .content3 .fc-c3-ul-container ul li:hover {
+    color: white;
 }
 .content-container .content3 .fc-c3-ul-container ul {
     list-style: none;
@@ -103,6 +114,8 @@
     justify-content: space-around;
     color: #7d7d7d;
     font-size: 0.8rem;
+    position: relative;
+    top: 1.85vh;
 }
 .content-container .content4 .fc-c4-container i {
     color: #ffffff;

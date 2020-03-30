@@ -12,6 +12,7 @@ import SaleCategory from './SaleCategory/SaleCategory'
 import NewProductsList from './NewProductsList/NewProductsList'
 import ShipingInformation from './ShipingInformation/ShipingInformation'
 import FooterComponent from './FooterComponent/FooterComponent'
+import CopyrightComponent from './CopyrightComponent/CopyrightComponent'
 
 // create styles object
 const s = {
@@ -34,6 +35,7 @@ export default class LandingPage extends Component {
                 <NewProductsList />
                 <ShipingInformation />
                 <FooterComponent />
+                <CopyrightComponent />
             </div>
         )
     }

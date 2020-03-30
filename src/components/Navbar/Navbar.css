@@ -2,6 +2,9 @@
     background-color: #1e88e5;
     padding-top: 27px;
     padding-bottom: 27px;
+    position: sticky;
+    top: 0px;
+    z-index: 99999999900;
 }
 .navbar-container ul {
     list-style: none;
