@@ -1,0 +1,87 @@
+.shop-contner {
+    height: 225vh;
+}
+.information-container {
+    position: relative;
+    width: 17.9vw;
+}
+.category-name-heading {
+    font-size: 41px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 20vh;
+}
+.fltrby-container {
+    width: 18.5vw;
+}
+.shop-wrapper {
+    display: flex;
+    height: 190vh;
+}
+.shop-main-container {
+    height: 198vh;
+    width: 56vw;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    left: 11.3vw;
+}
+.shop-main-container .view-criterias {
+    display: flex;
+    align-items: center;
+    position: relative;
+    bottom: 2.2vh;
+    justify-content: space-around;
+}
+
+.aside-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    left: 11.3vw;
+}
+.view-criterias .showq-container {
+    position: relative;
+    left: 0.2vw;
+}
+#pagination-component {
+    position: relative;
+    left: 1.4vw;
+}
+.shop-prod-container {
+    height: 169vh;
+    width: 56vw;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    left: 0.9vw;    
+}
+.shop-prod-container .p-item {
+    margin-left: 0.5vw;
+}
+
+#footer-cpyright-container {
+    height: 80vh;
+    position: relative;
+}
+#footer-cpyright-container > div:first-child {
+    position: relative;
+    bottom: 17vh;
+}
+#footer-cpyright-container > div:last-child {
+    position: relative;
+    bottom: 17vh;
+}
+
+.view-criterias-down {
+    height: 30vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+    top: 11.9vh;
+    z-index: 9999999;
+}
