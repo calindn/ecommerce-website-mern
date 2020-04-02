@@ -2,15 +2,13 @@ import React from 'react'
 import './FilterBy.css'
 import Checkbox from '@material-ui/core/Checkbox';
 
-export default function FilterBy() {
-
-    const [checked, setChecked] = React.useState(false);
-
-    const handleChange = event => {
-        setChecked(event.target.checked);
-    };
+export default function FilterBy({ handleFilterByClick }) {
 
     let brandList = ['Apple', 'Samsung', 'Xiaomi', 'Huawei', 'Sony'];
+    let initialValuesCheckedArr = [];
+    for (let i = 0; i < brandList.length; i++)
+        initialValuesCheckedArr.push(false);
+    const [checkedValue, setChecked] = React.useState(initialValuesCheckedArr);
 
     const showBrands = () => {
         let bl = document.getElementById('brand-list');
@@ -23,9 +21,42 @@ export default function FilterBy() {
             arrow.style.transform = '';
             bl.style.display = 'none';
         }
-
-
     }
+    const handleApplyBtnClick = (e) => {
+        let priceRange = [];
+        priceRange[0] = document.getElementById('min-price').value;
+        priceRange[1] = document.getElementById('max-price').value;
+
+        let selectedBrands = [];
+        document.querySelectorAll('.checkbox-container-brands span input').forEach((item) => {
+            if (item.checked === true)
+                selectedBrands.push(item.id);
+        })
+
+        handleFilterByClick(priceRange, selectedBrands);
+    }
+
+    const handleClearBtnClick = () => {
+        document.getElementById('min-price').value = '';
+        document.getElementById('max-price').value = '';
+
+        document.querySelectorAll('.checkbox-container-brands span input').forEach((item) => {
+            if (item.checked === true)
+                item.checked = false;
+
+        })
+        setChecked(initialValuesCheckedArr)
+    }
+
+    const toggleCheckbox = (e) => {
+        const idx = e.target.id;
+        let arr = [...checkedValue];
+        arr[idx] = !arr[idx];
+        setChecked(arr);
+    }
+
+
+
     return (
         <div className='filterby-container'>
             <div className='filterby-label'>
@@ -45,12 +76,16 @@ export default function FilterBy() {
                     <div onClick={() => showBrands()} className='arrow-down-i'><i class="fas fa-chevron-down"></i></div>
                     <div id='brand-list'>
                         {
-                            brandList.map((item) => {
+                            brandList.map((item, key) => {
                                 return (
-                                    <div style={{ 'display': 'flex', 'align-items': 'center' }}>
+                                    <div key={key} style={{ 'display': 'flex', 'align-items': 'center' }}>
                                         <Checkbox
+                                            checked={checkedValue[key]}
+                                            id={key}
+                                            className='checkbox-container-brands '
                                             color="primary"
                                             inputProps={{ 'aria-label': 'secondary checkbox' }}
+                                            onChange={toggleCheckbox}
                                         />
                                         <div>{item}</div>
                                     </div>
@@ -61,8 +96,8 @@ export default function FilterBy() {
                     </div>
                 </div>
                 <div className='fb-action-btns'>
-                    <button>Apply</button>
-                    <button>Clear</button>
+                    <button onClick={(e) => { handleApplyBtnClick(e) }}>Apply</button>
+                    <button onClick={() => { handleClearBtnClick() }}>Clear</button>
                 </div>
 
             </div>

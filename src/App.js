@@ -14,10 +14,11 @@ function App() {
       <TopComponent />
       <Navbar />
       <Switch>
-        <Route exact path='/' component={LandingPage} />
-        <Route exact path='/mac' component={Shop} />
+        {/* <Route exact path='/' component={LandingPage} /> */}
+        {/* <Route exact path='/mac' component={Shop} /> */}
         {/* <Route exact path='/categories' component={Categories} /> */}
       </Switch>
+      <Shop initalCategory='Laptops' />
     </Fragment>
   );
 }
