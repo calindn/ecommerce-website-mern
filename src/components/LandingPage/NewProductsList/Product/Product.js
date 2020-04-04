@@ -1,7 +1,7 @@
 import React from 'react'
 import './Product.css'
 
-export default function Product({ src, text, price }) {
+export default function Product({ src, text, price, toHideButton }) {
     return (
         <div className='product-card-container'>
             <div className='product-img-container'>
@@ -14,10 +14,13 @@ export default function Product({ src, text, price }) {
             <div className='product-desc-container'>
                 <p className='txt'>{text}</p>
                 <p className='price'>{price}</p>
-                <button>
-                    <i class="fas fa-cart-plus"></i>
-                    <span>Add to cart</span>
-                </button>
+                {
+                    toHideButton ? null : (<button>
+                        <i class="fas fa-cart-plus"></i>
+                        <span>Add to cart</span>
+                    </button>)
+                }
+
             </div>
         </div>
     )

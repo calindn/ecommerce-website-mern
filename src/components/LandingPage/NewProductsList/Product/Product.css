@@ -30,7 +30,7 @@
 /* .product-img-container .overlay:hover {
     opacity: 0.2;
 } */
-.product-desc-container:after {
+/* .product-desc-container:after {
     content: 'NEW';
     position: relative;
     color: white;
@@ -45,7 +45,8 @@
     bottom: 45vh;
     left: 3vw;
     z-index: 300;
-}
+} */
+
 .view-container {
     height: 36vh;
     position: relative;

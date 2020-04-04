@@ -55,7 +55,10 @@ export default function SelectList({ initialValue, label, values, updateProps })
 
     const classes = useStyles({ name: label, width: 200 });
     const handleChange = (event) => {
-        updateProps(event.target.value);
+        if (updateProps)
+            updateProps(event.target.value);
+        else
+            console.log(event.target.value);
     };
     const styleContainer = label === 'Show' ? {} : { 'width': '20vw' };
     return (
