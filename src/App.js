@@ -10,6 +10,9 @@ import Categories from './components/Shop/Categories/Categories'
 
 import ProductDetailView from './components/Shop/ProductDetailView/ProductDetailView'
 import AboutUs from './components/GeneralInfoComponents/AboutUs/AboutUs'
+import CustomerService from './components/GeneralInfoComponents/CustomerService/CustomerService'
+
+
 
 function App() {
   return (
@@ -21,6 +24,7 @@ function App() {
         <Route exact path='/mac' component={Shop} />
         <Route exact path='/details' component={ProductDetailView} />
         <Route exact path='/about' component={AboutUs} />
+        <Route exact path='/customerService' component={CustomerService} />
       </Switch>
       {/* <Shop initalCategory='Laptops' />
       {/* <Test width='500px' height='500px' /> */}
