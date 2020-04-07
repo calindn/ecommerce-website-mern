@@ -4,7 +4,10 @@ import ImageSlideshow from './ImageSlideshow/ImageSlideshow'
 import RightSideProductDescription from './RightSideProductDescription/RightSideProductDescription'
 import './ProductDetailView.css'
 
-export default function ProductDetailView() {
+export default function ProductDetailView({ match, location }) {
+
+    const { brandName } = location.state;
+    console.log('brandName ', brandName);
     return (
         <div className='prod-detail-view-container'>
             <div>

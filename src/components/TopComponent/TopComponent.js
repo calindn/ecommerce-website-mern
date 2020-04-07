@@ -10,11 +10,15 @@ import UserAuth from './UserAuth/UserAuth'
 export default function TopComponent() {
     return (
         <div className='topcomponent-container'>
-            <Logo />
-            <SearchBar />
+            <div className='logo-top-container'>
+                <Logo />
+            </div>
+            <div className='sb-container'>
+                <SearchBar />
+            </div>
             <div className='wrapper-c-f-ua'>
                 <Cart />
-                <Favorites />
+                {/* <Favorites /> */}
                 <UserAuth />
             </div>
         </div>

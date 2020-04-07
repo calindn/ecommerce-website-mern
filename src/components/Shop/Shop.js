@@ -1,4 +1,5 @@
 import React, { useState, Fragment } from 'react'
+import { Link } from 'react-router-dom'
 import FooterComponent from '../LandingPage/FooterComponent/FooterComponent'
 import CopyrightComponent from '../LandingPage/CopyrightComponent/CopyrightComponent'
 import Categories from './Categories/Categories'
@@ -34,22 +35,24 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function Shop({ initalCategory }) {
+export default function Shop({ initalCategory, match }) {
     const classes = useStyles();
 
-    const [categoryName, setCategoryName] = useState('Laptops');
+    const category = match.params.category.split('_').join(' ')
+    const [categoryName, setCategoryName] = useState(category);
     const [selectedFilter, setSelectedFilter] = useState('');
     const [pageNr, setPageNr] = useState(1);
     const [index, setIndex] = useState(0);
     let [prodArr, setProdArr] = useState([]);
 
+
     const categoryList = ['Mac', 'Laptops', 'Desktop PCs', 'Printers', 'Smart Tech', 'Networking', 'Tablets'];
-    const infoList = ['About Us', 'Customer Service', 'Shipping Delivery', 'Secure Payment', 'Guarantee', 'Terms & Conditions', 'Privacy Policy', 'Contact Us'];
+    const infoList = ['About Us', 'Customer Service', 'Shipping Delivery', 'Secure Payment', 'Contact Us'];
     const sortByValues = ['Oldest First', 'Newest First', 'Price: Low to High', 'Price: High to Low', 'Name: A-Z', 'Name: Z-A'];
 
     const originalProdArr = [
         <div className='p-item'>
-            <Product src={product_img1} text='Silicone Case for iPad mini Xiaomi' price='$45.00' />
+            <Product src={product_img1} brandName='Xiaomi' text='Silicone Case for iPad mini Xiaomi' price='$45.00' />
         </div>,
         <div className='p-item'>
             <Product src={product_img2} text='Silicone Case for iPad mini samsung' price='$1.00' />
@@ -148,6 +151,14 @@ export default function Shop({ initalCategory }) {
     ];
 
 
+
+    const scrollToTop = () => {
+        const scrollOptions = {
+            top: 0
+        }
+        window.scrollTo(scrollOptions);
+    }
+
     // nr of products of category x 
     const nrProds = originalProdArr.length;
 
@@ -165,7 +176,9 @@ export default function Shop({ initalCategory }) {
             return 0;
         }
 
-        prodArr = [...originalProdArr];
+        if (prodArr[0] !== null)
+            prodArr = [...originalProdArr];
+
         switch (value) {
             case 'Price: Low to High':
                 prodArr.sort((item1, item2) => {
@@ -175,6 +188,8 @@ export default function Shop({ initalCategory }) {
 
                 });
                 setProdArr(prodArr);
+                setPageNr(1);
+                setIndex(0);
                 break;
             case 'Price: High to Low':
                 prodArr.sort((item1, item2) => {
@@ -184,14 +199,20 @@ export default function Shop({ initalCategory }) {
 
                 });
                 setProdArr(prodArr);
+                setPageNr(1);
+                setIndex(0);
                 break;
             case 'Name: A-Z':
                 prodArr.sort(sortStringsCmp);
                 setProdArr(prodArr);
+                setPageNr(1);
+                setIndex(0);
                 break;
             case 'Name: Z-A':
                 prodArr.sort(sortStringsCmp).reverse();
                 setProdArr(prodArr);
+                setPageNr(1);
+                setIndex(0);
                 break;
             default:
                 break;
@@ -211,6 +232,19 @@ export default function Shop({ initalCategory }) {
     const handleCategoryClick = (e) => {
         if (e.target.style.color !== 'rgb(30, 136, 229)') {
             setCategoryName(e.target.textContent)
+
+            // set select list to initial value
+            setSelectedFilter('');
+            setProdArr(originalProdArr);
+
+            // reset the page nr to 1
+            setPageNr(1);
+            setIndex(0);
+
+            // reset checkbox
+            document.querySelector('#checkbox-clear-btn').click();
+
+
             let items = document.querySelector('#categories-list').childNodes
             items.forEach((item) => {
                 item.style.color = '#727171';
@@ -222,34 +256,44 @@ export default function Shop({ initalCategory }) {
 
     }
     const handleFilterByClick = (priceRange, selectedBrands) => {
+
+
         let prods = originalProdArr.filter((item) => {
             let price = parseFloat(item.props.children.props.price.slice(1));
             let str = item.props.children.props.text.split(' ');
             let brandName = str[str.length - 1];
 
             let sbNew = selectedBrands.map((item) => item.toLowerCase());
-            console.log(sbNew);
-            console.log('includes ', sbNew.includes(brandName.toLowerCase()));
 
-            return price >= priceRange[0] && price <= priceRange[1] && sbNew.includes(brandName.toLowerCase());
+            return (priceRange[0] === '' ? true : (price >= priceRange[0]))
+                && (priceRange[1] === '' ? true : price <= priceRange[1])
+                && (sbNew.length === 0 ? true : sbNew.includes(brandName.toLowerCase()));
         });
-        setProdArr(prods);
+
+        if (prods.length === 0) {
+            setProdArr([null])
+        } else {
+            setProdArr(prods);
+        }
+    }
+    const handleClear = () => {
+        setProdArr(originalProdArr);
     }
 
     return (
 
         <div className='shop-contner'>
             <div>
-                <NavigationHistory path='Samsung,Iphone 10' />
+                <NavigationHistory path={`${categoryName}`} />
             </div>
             <div className='category-name-heading'>{categoryName}</div>
             <div className='shop-wrapper'>
                 <div className='aside-container'>
                     <div className='categories-container'>
-                        <Categories handleCategoryClick={handleCategoryClick} selectedCategory={initalCategory} label='CATEGORIES' list={categoryList} />
+                        <Categories handleCategoryClick={handleCategoryClick} selectedCategory={categoryName} label='CATEGORIES' list={categoryList} />
                     </div>
                     <div className='fltrby-container'>
-                        <FilterBy handleFilterByClick={handleFilterByClick} />
+                        <FilterBy handleFilterByClick={handleFilterByClick} handleClear={handleClear} />
                     </div>
                     <div className='information-container'>
                         <Categories label='INFORMATION' list={infoList} />
@@ -274,23 +318,37 @@ export default function Shop({ initalCategory }) {
                             categoryName === 'Mac' ?
 
                                 (<Fragment>
-                                    {prodArr.map((item, idx) => {
-                                        return idx >= index && idx <= index + 8 ? item : null
-                                    })}
+                                    {
+                                        prodArr.length === 0 ?
+                                            originalProdArr.map((item, idx) => {
+                                                return idx >= index && idx <= index + 8 ? item : null
+                                            })
+                                            :
+                                            prodArr.map((item, idx) => {
+                                                return idx >= index && idx <= index + 8 ? item : null
+                                            })
+
+                                    }
 
                                 </Fragment>
                                 )
                                 :
                                 (<Fragment>
-                                    {prodArr.map((item, idx) => {
-                                        return idx >= index && idx <= index + 8 ? item : null
-                                    })}
+                                    {
+                                        prodArr.length === 0 ?
+                                            originalProdArr.map((item, idx) => {
+                                                return idx >= index && idx <= index + 8 ? item : null
+                                            })
+                                            :
+                                            prodArr.map((item, idx) => {
+                                                return idx >= index && idx <= index + 8 ? item : null
+                                            })
+                                    }
                                 </Fragment>
                                 )
                         }
                     </div>
                     <div className='view-criterias-down'>
-
                         <div className='sortby-container-down'>
                             <SelectList initialValue={selectedFilter} updateProps={updateProps} label='Sort By' values={sortByValues} />
                         </div>
@@ -315,4 +373,10 @@ export default function Shop({ initalCategory }) {
             </div>
         </div>
     );
+}
+
+
+const linkStyles = {
+    'textDecoration': 'none',
+    'color': 'black'
 }

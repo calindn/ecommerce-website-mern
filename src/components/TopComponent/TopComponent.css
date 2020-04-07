@@ -14,5 +14,15 @@
     display: flex;
     align-items: center;
     position: relative;
-    left: 75px;
+    left: 84px;
+    width: 8.6vw;
+    justify-content: space-between;
+}
+.sb-container {
+    position: relative;
+    right: 2vw;
+}
+.logo-top-container {
+    position: relative;
+    right: 2.8vw;
 }

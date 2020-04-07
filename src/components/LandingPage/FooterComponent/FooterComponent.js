@@ -1,10 +1,17 @@
 import React from 'react'
 import './FooterComponent.css'
-
+import { Link } from 'react-router-dom'
 import Logo from '../../TopComponent/Logo/Logo'
 
 
 export default function FooterComponent() {
+
+    const scrollToTop = () => {
+        const scrollOptions = {
+            top: 0
+        }
+        window.scrollTo(scrollOptions);
+    }
     return (
         <div className='footer-container'>
             <div className='content-container'>
@@ -26,10 +33,16 @@ export default function FooterComponent() {
                     </div>
                     <div className='fc-c2-ul-container'>
                         <ul>
-                            <li>About Us</li>
-                            <li>Customer Service</li>
+                            <Link onClick={() => { scrollToTop() }} style={linkStyles} to='/about_us'>
+                                <li>About Us</li>
+                            </Link>
+                            <Link onClick={() => { scrollToTop() }} style={linkStyles} to='/customer_service'>
+                                <li>Customer Service</li>
+                            </Link>
                             <li>Privacy Policy</li>
-                            <li>Contact Us</li>
+                            <Link onClick={() => { scrollToTop() }} style={linkStyles} to='/contact_us'>
+                                <li>Contact Us</li>
+                            </Link>
                             <li>Blog</li>
                         </ul>
                     </div>
@@ -40,8 +53,12 @@ export default function FooterComponent() {
                     </div>
                     <div className='fc-c3-ul-container'>
                         <ul>
-                            <li>Shipping & Delivery</li>
-                            <li>Secure Payment</li>
+                            <Link onClick={() => { scrollToTop() }} style={linkStyles} to='/shipping_delivery'>
+                                <li>Shipping & Delivery</li>
+                            </Link>
+                            <Link onClick={() => { scrollToTop() }} style={linkStyles} to='/secure_payment'>
+                                <li>Secure Payment</li>
+                            </Link>
                             <li>Guarantee</li>
                             <li>Terms & Conditions</li>
                             <li>FAQ</li>
@@ -67,4 +84,9 @@ export default function FooterComponent() {
             </div>
         </div>
     )
+}
+
+const linkStyles = {
+    'textDecoration': 'none',
+    'color': '#7d7d7d'
 }

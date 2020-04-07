@@ -6,30 +6,53 @@ export default function Navbar() {
     return (
         <div className='navbar-container'>
             <ul>
-                <Link to='/mac'>
+                <Link style={linkStyles} to={{ pathname: '/shop/Mac' }}>
                     <li>
                         MAC
+                    </li>
+                </Link>
+                <Link style={linkStyles} to={{ pathname: '/shop/Laptops' }}>
+                    <li>
+                        LAPTOPS
                 </li>
                 </Link>
-                <li>
-                    LAPTOPS
+
+                <Link style={linkStyles} to={{ pathname: '/shop/Desktop_PCs' }}>
+                    <li>
+                        DESKTOP PCS
                 </li>
-                <li>
-                    DESKTOP PCS
+                </Link>
+
+                <Link style={linkStyles} to={{ pathname: '/shop/Printers' }}>
+                    <li>
+                        PRINTERS
+                    </li>
+                </Link>
+
+                <Link style={linkStyles} to={{ pathname: '/shop/Smart_Tech' }}>
+                    <li>
+                        SMART TECH
                 </li>
-                <li>
-                    PRINTERS
-                </li>
-                <li>
-                    SMART TECH
-                </li>
-                <li>
-                    NETWORKING
-                </li>
-                <li>
-                    TABLETS
-                </li>
+                </Link>
+
+                <Link style={linkStyles} to={{ pathname: '/shop/Networking' }}>
+                    <li>
+                        NETWORKING
+                    </li>
+                </Link>
+
+                <Link style={linkStyles} to={{ pathname: '/shop/Tablets' }}>
+                    <li>
+                        TABLETS
+                    </li>
+                </Link>
+
             </ul>
         </div>
     )
+}
+
+const linkStyles = {
+    'textDecoration': 'none',
+    'color': '#ffffff'
 }

@@ -8,10 +8,12 @@ export default function NavigationHistory({ path }) {
 
     return (
         <div className='nh-container'>
-            <div className='home-link'>Home</div>
+            <Link style={{ 'textDecoration': 'none' }} to='/'>
+                <div className='home-link'>Home</div>
+            </Link>
             {
                 arr.map((item) => {
-                    let l = '/' + item.toLowerCase().split(' ').join('_')
+                    let l = '/shop/' + item.split(' ').join('_')
                     return (
                         <Link style={{ textDecoration: 'none' }} to={l} >
                             <div className='nh-item'>{item}</div>

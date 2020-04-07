@@ -14,6 +14,10 @@ import CustomerService from './components/GeneralInfoComponents/CustomerService/
 import ShippingDelivery from './components/GeneralInfoComponents/ShippingDelivery/ShippingDelivery'
 import SecurePayment from './components/GeneralInfoComponents/SecurePayment/SecurePayment'
 import ContactUs from './components/GeneralInfoComponents/ContactUs/ContactUs'
+import Authorization from './components/Authorization/Authorization'
+import ForgotPassword from './components/ForgotPassword/ForgotPassword'
+import Registration from './components/Registration/Registration'
+import ShoppingCart from './components/ShoppingCart/ShoppingCart'
 
 
 
@@ -24,13 +28,18 @@ function App() {
       <Navbar />
       <Switch>
         <Route exact path='/' component={LandingPage} /> */}
-        <Route exact path='/mac' component={Shop} />
-        <Route exact path='/details' component={ProductDetailView} />
-        <Route exact path='/about' component={AboutUs} />
-        <Route exact path='/customerService' component={CustomerService} />
-        <Route exact path='/shipping' component={ShippingDelivery} />
-        <Route exact path='/securePayment' component={SecurePayment} />
-        <Route exact path='/contact' component={ContactUs} />
+        <Route path='/shop/:category' component={(props) => <Shop {...props} key={window.location.pathname} />} />
+        <Route exact path='/details' component={(props) => <ProductDetailView {...props} key={window.location.pathname} />} />
+        <Route exact path='/about_us' component={AboutUs} />
+        <Route exact path='/customer_service' component={CustomerService} />
+        <Route exact path='/shipping_delivery' component={ShippingDelivery} />
+        <Route exact path='/secure_payment' component={SecurePayment} />
+        <Route exact path='/contact_us' component={ContactUs} />
+        <Route exact path='/authorization' component={Authorization} />
+        <Route exact path='/forgotPass' component={ForgotPassword} />
+        <Route exact path='/registration' component={Registration} />
+        <Route exact path='/cart' component={ShoppingCart} />
+
       </Switch>
       {/* <Shop initalCategory='Laptops' />
       {/* <Test width='500px' height='500px' /> */}

@@ -1,9 +1,10 @@
 .newproductslist-container {
-    width: 78.7vw;
-    height: 150vh;
+    width: 75vw;
+    height: 120vh;
     margin: auto;
     position: relative;
     top: 20vh;
+    right: 0.59vw;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -16,7 +17,7 @@
 .products-container {
     /* border: 2px solid green; */
     height: 140vh;
-    width: 78.7vw;
+    width: 74.9vw;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;

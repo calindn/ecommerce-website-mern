@@ -2,13 +2,15 @@ import React from 'react'
 import './FilterBy.css'
 import Checkbox from '@material-ui/core/Checkbox';
 
-export default function FilterBy({ handleFilterByClick }) {
+export default function FilterBy({ handleFilterByClick, handleClear }) {
 
     let brandList = ['Apple', 'Samsung', 'Xiaomi', 'Huawei', 'Sony'];
     let initialValuesCheckedArr = [];
     for (let i = 0; i < brandList.length; i++)
         initialValuesCheckedArr.push(false);
     const [checkedValue, setChecked] = React.useState(initialValuesCheckedArr);
+
+
 
     const showBrands = () => {
         let bl = document.getElementById('brand-list');
@@ -29,8 +31,10 @@ export default function FilterBy({ handleFilterByClick }) {
 
         let selectedBrands = [];
         document.querySelectorAll('.checkbox-container-brands span input').forEach((item) => {
-            if (item.checked === true)
-                selectedBrands.push(item.id);
+            if (item.checked === true) {
+                let idx = parseInt(item.id);
+                selectedBrands.push(brandList[idx]);
+            }
         })
 
         handleFilterByClick(priceRange, selectedBrands);
@@ -46,6 +50,8 @@ export default function FilterBy({ handleFilterByClick }) {
 
         })
         setChecked(initialValuesCheckedArr)
+        handleClear();
+
     }
 
     const toggleCheckbox = (e) => {
@@ -97,7 +103,7 @@ export default function FilterBy({ handleFilterByClick }) {
                 </div>
                 <div className='fb-action-btns'>
                     <button onClick={(e) => { handleApplyBtnClick(e) }}>Apply</button>
-                    <button onClick={() => { handleClearBtnClick() }}>Clear</button>
+                    <button id='checkbox-clear-btn' onClick={() => { handleClearBtnClick() }}>Clear</button>
                 </div>
 
             </div>

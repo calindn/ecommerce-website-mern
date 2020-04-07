@@ -2,7 +2,7 @@
     width: 98.9vw;
     height: 52vh;
     position: relative;
-    top: 40vh;
+    top: 40vh !important;
     display: flex;
     justify-content: space-around;
     background-color: #262626;
@@ -11,6 +11,8 @@
     width: 20vw;
 }
 .content-container .content1 {
+    position: relative;
+    left: 1.9vw;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -22,6 +24,7 @@
     position: relative;
     left: 10vw;
     top: 2.5vw;
+    z-index: 999999;
 }
 .content-container .content1 .fc-c1-txt {
     position: relative;
@@ -51,6 +54,8 @@
 .content-container .content2 .fc-c2-ul-container {
     position: relative;
     bottom: 10vh;
+    z-index: 20000;
+    width: 8vw;
 }
 .content-container .content2 .fc-c2-ul-container ul li {
     transition: all .1s ease-in-out;
@@ -116,6 +121,7 @@
     font-size: 0.8rem;
     position: relative;
     top: 1.85vh;
+    right: 2.1vw;
 }
 .content-container .content4 .fc-c4-container i {
     color: #ffffff;

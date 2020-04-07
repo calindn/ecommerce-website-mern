@@ -34,8 +34,11 @@ export default class LandingPage extends Component {
                 <SaleCategory />
                 <NewProductsList />
                 <ShipingInformation />
-                <FooterComponent />
-                <CopyrightComponent />
+                <div className='lp-footer-cpyright-container'>
+                    <FooterComponent />
+                    <CopyrightComponent />
+                </div>
+
             </div>
         )
     }
