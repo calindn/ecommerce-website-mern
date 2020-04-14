@@ -82,6 +82,8 @@
     margin-top: 7px;
     cursor: pointer;
     transition: all .2s ease;
+    /* border: 2px solid red; */
+    height: 50px;
 }
 .product-desc-container .txt:hover {
     color: #1e88e5;

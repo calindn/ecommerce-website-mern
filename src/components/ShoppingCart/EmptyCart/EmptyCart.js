@@ -1,5 +1,9 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import './EmptyCart.css'
+
+import FooterComponent from '../../LandingPage/FooterComponent/FooterComponent'
+import CopyrightComponent from '../../LandingPage/CopyrightComponent/CopyrightComponent'
 
 export default function EmptyCart() {
     return (

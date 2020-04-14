@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import MainImageSlider from './MainImageSlider/MainImageSlider'
+import axios from 'axios';
 
 import './LandingPage.css'
 
@@ -26,13 +27,38 @@ const s = {
 const slides = [slide1, slide2, slide3];
 
 export default class LandingPage extends Component {
+
+    state = {
+        products: [],
+        nrProductsToDisplay: 8
+    }
+    componentDidMount() {
+        this.getProducts();
+    }
+
+    getProducts = async () => {
+        let res = await axios.get('http://localhost:5000/api/v1/products/');
+        let { data } = res;
+
+        const copy = [...data];
+
+        let filtered = data.filter((item, index) => { return (index % 5 === 0 && index <= 35) })
+        // console.log(filtered[0])
+
+
+        this.setState({ products: filtered })
+    }
+
     render() {
+        // this.state.products.length !== 0 ?
+        //     console.log(this.state.products[0].poze) : console.log('initial render')
+
         return (
             <div className='slider-container'>
                 <MainImageSlider slides={slides} />
                 <CategoryList />
                 <SaleCategory />
-                <NewProductsList />
+                <NewProductsList products={this.state.products} />
                 <ShipingInformation />
                 <div className='lp-footer-cpyright-container'>
                     <FooterComponent />

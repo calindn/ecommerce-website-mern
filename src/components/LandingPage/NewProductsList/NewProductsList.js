@@ -12,14 +12,29 @@ import product_img7 from '../../LandingPage/MainImageSlider/assets/product_img7.
 import product_img8 from '../../LandingPage/MainImageSlider/assets/product_img8.jpg'
 
 export default class NewProductsList extends Component {
+
+
     render() {
+
+
+        const products = this.props.products;
+
+
         return (
             <div className='newproductslist-container'>
                 <div className='newproductslist-heading'>
                     <span>PRODUCTS</span>
                 </div>
+
                 <div className='products-container'>
-                    <div>
+                    {
+                        products.map((product) => {
+                            return (<div>
+                                <Product src={product.poze[0].substr(1)} text={product.nume} price={product.pret} brandName={product.numeBrand} />
+                            </div>)
+                        })
+                    }
+                    {/* <div>
                         <Product src={product_img1} text='Silicone Case for iPad mini' price='$45.00' />
                     </div>
                     <div>
@@ -42,7 +57,7 @@ export default class NewProductsList extends Component {
                     </div>
                     <div>
                         <Product src={product_img8} text='Silicone Case for iPad mini' price='$45.00' />
-                    </div>
+                    </div> */}
                 </div>
 
             </div>
