@@ -1,14 +1,31 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import axios from 'axios'
+
 import './FilterBy.css'
 import Checkbox from '@material-ui/core/Checkbox';
 
-export default function FilterBy({ handleFilterByClick, handleClear }) {
+export default function FilterBy({ handleFilterByClick, handleClear, category }) {
 
-    let brandList = ['Apple', 'Samsung', 'Xiaomi', 'Huawei', 'Sony'];
+    const [brandList, setBrandList] = useState([]);
+
     let initialValuesCheckedArr = [];
-    for (let i = 0; i < brandList.length; i++)
-        initialValuesCheckedArr.push(false);
     const [checkedValue, setChecked] = React.useState(initialValuesCheckedArr);
+
+
+    useEffect(() => {
+        const getBrandList = async (category) => {
+            let res = await axios.get(`http://localhost:5000/api/v1/products/brandList/${category}`);
+            let { data } = res;
+            setBrandList(data);
+
+            for (let i = 0; i < data.length; i++)
+                initialValuesCheckedArr.push(false);
+        }
+        getBrandList(category.toLowerCase());
+
+    }, [])
+
+
 
 
 
@@ -82,21 +99,22 @@ export default function FilterBy({ handleFilterByClick, handleClear }) {
                     <div onClick={() => showBrands()} className='arrow-down-i'><i class="fas fa-chevron-down"></i></div>
                     <div id='brand-list'>
                         {
-                            brandList.map((item, key) => {
-                                return (
-                                    <div key={key} style={{ 'display': 'flex', 'align-items': 'center' }}>
-                                        <Checkbox
-                                            checked={checkedValue[key]}
-                                            id={key}
-                                            className='checkbox-container-brands '
-                                            color="primary"
-                                            inputProps={{ 'aria-label': 'secondary checkbox' }}
-                                            onChange={toggleCheckbox}
-                                        />
-                                        <div>{item}</div>
-                                    </div>
-                                )
-                            })
+                            brandList !== undefined ?
+                                brandList.map((item, key) => {
+                                    return (
+                                        <div key={key} style={{ 'display': 'flex', 'align-items': 'center' }}>
+                                            <Checkbox
+                                                checked={checkedValue[key]}
+                                                id={key}
+                                                className='checkbox-container-brands '
+                                                color="primary"
+                                                inputProps={{ 'aria-label': 'secondary checkbox' }}
+                                                onChange={toggleCheckbox}
+                                            />
+                                            <div>{item}</div>
+                                        </div>
+                                    )
+                                }) : null
                         }
 
                     </div>

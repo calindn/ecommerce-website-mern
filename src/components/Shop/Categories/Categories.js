@@ -25,9 +25,9 @@ export default function Categories({ handleCategoryClick, selectedCategory, labe
                     {
                         list.map((item, key) => {
                             if (item === selectedCategory) {
-                                return <li onClick={(e) => { return label === 'CATEGORIES' ? handleCategoryClick(e) : handleInformationClick(item) }} key={key} style={{ 'color': '#1e88e5', 'background-color': '#e9e9e9' }}>{item}</li>
+                                return <li onClick={(e) => { return label === 'CATEGORII' ? handleCategoryClick(e) : handleInformationClick(item) }} key={key} style={{ 'color': '#1e88e5', 'background-color': '#e9e9e9' }}>{item}</li>
                             } else {
-                                return <li onClick={(e) => { return label === 'CATEGORIES' ? handleCategoryClick(e) : handleInformationClick(item) }} key={key}>{item}</li>
+                                return <li onClick={(e) => { return label === 'CATEGORII' ? handleCategoryClick(e) : handleInformationClick(item) }} key={key}>{item}</li>
                             }
                         })
                     }

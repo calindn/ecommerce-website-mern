@@ -6,45 +6,33 @@ export default function Navbar() {
     return (
         <div className='navbar-container'>
             <ul>
-                <Link style={linkStyles} to={{ pathname: '/shop/Mac' }}>
+                <Link style={linkStyles} to={{ pathname: '/shop/Smartphone' }}>
                     <li>
-                        MAC
+                        SMARTPHONE
                     </li>
                 </Link>
-                <Link style={linkStyles} to={{ pathname: '/shop/Laptops' }}>
+                <Link style={linkStyles} to={{ pathname: '/shop/Laptop' }}>
                     <li>
-                        LAPTOPS
+                        LAPTOP
                 </li>
                 </Link>
 
-                <Link style={linkStyles} to={{ pathname: '/shop/Desktop_PCs' }}>
+                <Link style={linkStyles} to={{ pathname: '/shop/Tableta' }}>
                     <li>
-                        DESKTOP PCS
+                        TABLETA
                 </li>
                 </Link>
 
-                <Link style={linkStyles} to={{ pathname: '/shop/Printers' }}>
+                <Link style={linkStyles} to={{ pathname: '/shop/Smartwatch' }}>
                     <li>
-                        PRINTERS
+                        SMARTWATCH
                     </li>
                 </Link>
 
-                <Link style={linkStyles} to={{ pathname: '/shop/Smart_Tech' }}>
+                <Link style={linkStyles} to={{ pathname: '/shop/Televizor' }}>
                     <li>
-                        SMART TECH
+                        TELEVIZOR
                 </li>
-                </Link>
-
-                <Link style={linkStyles} to={{ pathname: '/shop/Networking' }}>
-                    <li>
-                        NETWORKING
-                    </li>
-                </Link>
-
-                <Link style={linkStyles} to={{ pathname: '/shop/Tablets' }}>
-                    <li>
-                        TABLETS
-                    </li>
                 </Link>
 
             </ul>

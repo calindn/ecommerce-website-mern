@@ -3,15 +3,31 @@ import { Link } from 'react-router-dom'
 import './Product.css'
 
 
-export default function Product({ src, text, price, toHideButton, brandName }) {
+export default function Product({ src, text, price, toHideButton, brandName, listaAtribute, categorie, descriere }) {
 
     // load image 
-    const images = require.context('../../../../images', true);
-    let img = images('.' + src);
+    let images;
+    let img;
+
+    // if (window.location.pathname === '/' || window.location.pathname.) {
+    images = require.context('../../../../images', true);
+    console.log(src[0].substr(1));
+    img = images('.' + src[0].substr(1));
+    // } else {
+    //     img = src;
+    // }
+
     // shorten text 
     const shortText = text.split(' ').filter((item, index) => index < 10).join(' ');
 
-
+    // product details
+    const product = {
+        img,
+        name: text,
+        // price: parseFloat(price.substr(1)),
+        quantity: 1,
+        // totalPrice: parseFloat(price.substr(1))
+    }
 
     const scrollToTop = () => {
         const scrollOptions = {
@@ -19,7 +35,6 @@ export default function Product({ src, text, price, toHideButton, brandName }) {
         }
         window.scrollTo(scrollOptions);
     }
-
     const scrollToTopAndAddToLocalStorage = () => {
         const scrollOptions = {
             top: 0
@@ -34,18 +49,9 @@ export default function Product({ src, text, price, toHideButton, brandName }) {
         document.querySelector('#weirdSpan').innerHTML = inCartOld.length;
     }
 
-    const product = {
-        img: src,
-        name: text,
-        price: parseFloat(price.substr(1)),
-        quantity: 1,
-        totalPrice: parseFloat(price.substr(1))
-    }
-    // console.log(product);
-
     return (
         <div className='product-card-container'>
-            <Link onClick={scrollToTop} to={{ pathname: '/details', state: { src: src, price: price, toHideButton: toHideButton, brandName: brandName } }}>
+            <Link onClick={scrollToTop} to={{ pathname: '/details', state: { src, price, toHideButton, brandName, listaAtribute, text, categorie, descriere } }}>
                 <div className='product-img-container'>
                     <img src={img} alt='product' />
                     <div className='overlay'></div>

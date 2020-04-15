@@ -1,5 +1,7 @@
-import React, { useState, Fragment } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState, useEffect, Fragment } from 'react'
+import { Link, useHistory } from 'react-router-dom'
+import axios from 'axios'
+
 import FooterComponent from '../LandingPage/FooterComponent/FooterComponent'
 import CopyrightComponent from '../LandingPage/CopyrightComponent/CopyrightComponent'
 import Categories from './Categories/Categories'
@@ -37,119 +39,41 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Shop({ initalCategory, match }) {
     const classes = useStyles();
+    const history = useHistory();
+
+
 
     const category = match.params.category.split('_').join(' ')
     const [categoryName, setCategoryName] = useState(category);
     const [selectedFilter, setSelectedFilter] = useState('');
     const [pageNr, setPageNr] = useState(1);
     const [index, setIndex] = useState(0);
-    let [prodArr, setProdArr] = useState([]);
 
 
-    const categoryList = ['Mac', 'Laptops', 'Desktop PCs', 'Printers', 'Smart Tech', 'Networking', 'Tablets'];
+    const categoryList = ['Smartphone', 'Laptop', 'Tableta', 'Smartwatch', 'Televizor'];
     const infoList = ['About Us', 'Customer Service', 'Shipping Delivery', 'Secure Payment', 'Contact Us'];
     const sortByValues = ['Oldest First', 'Newest First', 'Price: Low to High', 'Price: High to Low', 'Name: A-Z', 'Name: Z-A'];
 
-    const originalProdArr = [
-        <div className='p-item'>
-            <Product src={product_img1} brandName='Xiaomi' text='Silicone Case for iPad mini Xiaomi' price='$45.00' />
-        </div>,
-        <div className='p-item'>
-            <Product src={product_img2} text='Silicone Case for iPad mini samsung' price='$1.00' />
-        </div>,
-        <div className='p-item'>
-            <Product src={product_img3} text='Silicone Case for iPad mini' price='$45.00' />
-        </div>,
-        <div className='p-item'>
-            <Product src={product_img4} text='Ailicone Case for iPad mini' price='$45.00' />
-        </div>,
-        <div className='p-item'>
-            <Product src={product_img5} text='Silicone Case for iPad mini' price='$45.00' />
-        </div>,
-        <div className='p-item'>
-            <Product src={product_img6} text='Salicone Case for iPad mini' price='$45.00' />
-        </div>,
-        <div className='p-item'>
-            <Product src={product_img7} text='Silicone Case for iPad mini' price='$45.00' />
-        </div>,
-        <div className='p-item'>
-            <Product src={product_img8} text='Silicone Case for iPad mini' price='$45.00' />
-        </div>,
-        <div className='p-item'>
-            <Product src={product_img8} text='Silicone Case for iPad mini' price='$45.00' />
-        </div>,
-        <div className='p-item'>
-            <Product src={product_img1} text='Silicone Case for iPad mini' price='$45.00' />
-        </div>,
-        <div className='p-item'>
-            <Product src={product_img2} text='Silicone Case for iPad mini' price='$45.00' />
-        </div>,
-        <div className='p-item'>
-            <Product src={product_img3} text='Silicone Case for iPad mini' price='$45.00' />
-        </div>,
-        <div className='p-item'>
-            <Product src={product_img4} text='Silicone Case for iPad mini' price='$45.00' />
-        </div>,
-        <div className='p-item'>
-            <Product src={product_img5} text='Silicone Case for iPad mini' price='$45.00' />
-        </div>,
-        <div className='p-item'>
-            <Product src={product_img6} text='Silicone Case for iPad mini' price='$45.00' />
-        </div>,
-        <div className='p-item'>
-            <Product src={product_img7} text='Silicone Case for iPad mini' price='$45.00' />
-        </div>,
-        <div className='p-item'>
-            <Product src={product_img8} text='Silicone Case for iPad mini' price='$45.00' />
-        </div>,
-        <div className='p-item'>
-            <Product src={product_img8} text='Silicone Case for iPad mini' price='$45.00' />
-        </div>,
-        <div className='p-item'>
-            <Product src={product_img1} text='Silicone Case for iPad mini' price='$45.00' />
-        </div>,
-        <div className='p-item'>
-            <Product src={product_img2} text='Silicone Case for iPad mini' price='$45.00' />
-        </div>,
-        <div className='p-item'>
-            <Product src={product_img3} text='Silicone Case for iPad mini' price='$45.00' />
-        </div>,
-        <div className='p-item'>
-            <Product src={product_img4} text='Silicone Case for iPad mini' price='$45.00' />
-        </div>,
-        <div className='p-item'>
-            <Product src={product_img5} text='Silicone Case for iPad mini' price='$45.00' />
-        </div>,
-        <div className='p-item'>
-            <Product src={product_img6} text='Silicone Case for iPad mini' price='$45.00' />
-        </div>,
-        <div className='p-item'>
-            <Product src={product_img7} text='Silicone Case for iPad mini' price='$45.00' />
-        </div>,
-        <div className='p-item'>
-            <Product src={product_img8} text='Silicone Case for iPad mini' price='$45.00' />
-        </div>,
-        <div className='p-item'>
-            <Product src={product_img8} text='Silicone Case for iPad mini' price='$45.00' />
-        </div>,
-        <div className='p-item'>
-            <Product src={product_img5} text='Silicone Case for iPad mini' price='$45.00' />
-        </div>,
-        <div className='p-item'>
-            <Product src={product_img6} text='Silicone Case for iPad mini' price='$45.00' />
-        </div>,
-        <div className='p-item'>
-            <Product src={product_img7} text='Silicone Case for iPad mini' price='$45.00' />
-        </div>,
-        <div className='p-item'>
-            <Product src={product_img8} text='Silicone Case for iPad mini' price='$45.00' />
-        </div>,
-        <div className='p-item'>
-            <Product src={product_img8} text='Silicone Case for iPad mini' price='$555.00' />
-        </div>
 
-    ];
 
+    let [prodArr, setProdArr] = useState([]);
+    let [originalProdArr, setOriginalProdArr] = useState([]);
+    useEffect(() => {
+        // get products by category 
+        let c;
+        const getProducts = async () => {
+            c = window.location.pathname.substr(6);
+            let lc = c.toLocaleLowerCase();
+            let res = await axios.get(`http://localhost:5000/api/v1/products/category/${lc}`);
+            let { data } = res;
+            setProdArr([...data]);
+            setCategoryName(c);
+            setOriginalProdArr([...data]);
+        }
+        getProducts();
+
+
+    }, [])
 
 
     const scrollToTop = () => {
@@ -160,7 +84,7 @@ export default function Shop({ initalCategory, match }) {
     }
 
     // nr of products of category x 
-    const nrProds = originalProdArr.length;
+    const nrProds = prodArr.length;
 
 
     const updateProps = (value) => {
@@ -232,7 +156,7 @@ export default function Shop({ initalCategory, match }) {
     const handleCategoryClick = (e) => {
         if (e.target.style.color !== 'rgb(30, 136, 229)') {
             setCategoryName(e.target.textContent)
-
+            console.log('CUM ERA ');
             // set select list to initial value
             setSelectedFilter('');
             setProdArr(originalProdArr);
@@ -245,29 +169,34 @@ export default function Shop({ initalCategory, match }) {
             document.querySelector('#checkbox-clear-btn').click();
 
 
-            let items = document.querySelector('#categories-list').childNodes
+            let items = document.querySelector('#categorii-list').childNodes
             items.forEach((item) => {
                 item.style.color = '#727171';
                 item.style.backgroundColor = '#ffffff';
             });
+
             e.target.style.color = 'rgb(30, 136, 229)';
             e.target.style.backgroundColor = 'rgb(233, 233, 233)';
         }
 
+        const url = e.target.textContent.split(' ').join('_');
+        history.push(`/shop/${url}`);
+
     }
     const handleFilterByClick = (priceRange, selectedBrands) => {
 
-
         let prods = originalProdArr.filter((item) => {
-            let price = parseFloat(item.props.children.props.price.slice(1));
-            let str = item.props.children.props.text.split(' ');
-            let brandName = str[str.length - 1];
+            let price;
+            if (item.pret)
+                price = parseFloat(item.pret.slice(0, -3));
+            let brandName = item.numeBrand.toLowerCase();
 
             let sbNew = selectedBrands.map((item) => item.toLowerCase());
 
+
             return (priceRange[0] === '' ? true : (price >= priceRange[0]))
                 && (priceRange[1] === '' ? true : price <= priceRange[1])
-                && (sbNew.length === 0 ? true : sbNew.includes(brandName.toLowerCase()));
+                && (sbNew.length === 0 ? true : sbNew.includes(brandName));
         });
 
         if (prods.length === 0) {
@@ -290,10 +219,10 @@ export default function Shop({ initalCategory, match }) {
             <div className='shop-wrapper'>
                 <div className='aside-container'>
                     <div className='categories-container'>
-                        <Categories handleCategoryClick={handleCategoryClick} selectedCategory={categoryName} label='CATEGORIES' list={categoryList} />
+                        <Categories handleCategoryClick={handleCategoryClick} selectedCategory={categoryName} label='CATEGORII' list={categoryList} />
                     </div>
                     <div className='fltrby-container'>
-                        <FilterBy handleFilterByClick={handleFilterByClick} handleClear={handleClear} />
+                        <FilterBy handleFilterByClick={handleFilterByClick} handleClear={handleClear} category={categoryName} />
                     </div>
                     <div className='information-container'>
                         <Categories label='INFORMATION' list={infoList} />
@@ -315,37 +244,12 @@ export default function Shop({ initalCategory, match }) {
                     </div>
                     <div className='shop-prod-container'>
                         {
-                            categoryName === 'Mac' ?
+                            prodArr === [] || prodArr[0] === null ? null : prodArr.map((product, idx) => {
 
-                                (<Fragment>
-                                    {
-                                        prodArr.length === 0 ?
-                                            originalProdArr.map((item, idx) => {
-                                                return idx >= index && idx <= index + 8 ? item : null
-                                            })
-                                            :
-                                            prodArr.map((item, idx) => {
-                                                return idx >= index && idx <= index + 8 ? item : null
-                                            })
-
-                                    }
-
-                                </Fragment>
-                                )
-                                :
-                                (<Fragment>
-                                    {
-                                        prodArr.length === 0 ?
-                                            originalProdArr.map((item, idx) => {
-                                                return idx >= index && idx <= index + 8 ? item : null
-                                            })
-                                            :
-                                            prodArr.map((item, idx) => {
-                                                return idx >= index && idx <= index + 8 ? item : null
-                                            })
-                                    }
-                                </Fragment>
-                                )
+                                return idx >= index && idx <= index + 8 ? (<div className='p-item'>
+                                    <Product src={product.poze} brandName={product.numeBrand} text={product.nume} price={product.pret} listaAtribute={product.lista_atribute} categorie={product.categorie} descriere={product.descriere} />
+                                </div>) : null
+                            })
                         }
                     </div>
                     <div className='view-criterias-down'>
@@ -353,7 +257,7 @@ export default function Shop({ initalCategory, match }) {
                             <SelectList initialValue={selectedFilter} updateProps={updateProps} label='Sort By' values={sortByValues} />
                         </div>
                         <Pagination
-                            id='pagination-component'
+                            id='pagination-component-down'
                             page={pageNr}
                             onChange={(event, page) => { changePage(page) }}
                             count={Math.ceil(nrProds / 9)}

@@ -12,6 +12,7 @@
 .product-img-container img {
     width: 17.6vw;
     height: 36vh;
+    object-fit: contain;
     cursor: pointer;
     display: block;
 }

@@ -4,6 +4,8 @@
 .information-container {
     position: relative;
     width: 17.9vw;
+    /* bottom: 7.8vh; */
+    bottom: 16.5vh;
 
 }
 .category-name-heading {
@@ -17,6 +19,8 @@
 }
 .fltrby-container {
     width: 18.5vw;
+    position: relative;
+    bottom: 17vh;
 }
 .shop-wrapper {
     display: flex;
@@ -35,6 +39,7 @@
     align-items: center;
     position: relative;
     bottom: 2.2vh;
+    right: 1.87vw;
     justify-content: space-around;
 
 }
@@ -53,6 +58,7 @@
 .view-criterias-down .sortby-container-down {
     position: relative;
     right: 3.34vw;
+    bottom: 70px;
 }
 .view-criterias .sortby-container {
     position: relative;
@@ -60,7 +66,12 @@
 }
 #pagination-component {
     position: relative;
-    left: 5vw;
+    left: 8.6vw;
+}
+#pagination-component-down {
+    position: relative;
+    left: 8.6vw;
+    bottom: 9vh;
 }
 .shop-prod-container {
     height: 169vh;
@@ -68,6 +79,7 @@
   
     position: relative;
     left: 0.9vw; 
+    bottom: .7vh;
     display: flex;
     flex-wrap: wrap;   
     align-content: flex-start;
@@ -88,6 +100,7 @@
     height: 80vh;
     position: relative;
     z-index: -5;
+    bottom: 14vh;
 }
 #footer-cpyright-container > div:first-child {
     position: relative;
@@ -105,5 +118,6 @@
     justify-content: space-around;
     position: relative;
     top: 11.9vh;
+    right: 1.89vw;
     z-index: 9999999;
 }

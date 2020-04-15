@@ -75,11 +75,13 @@
     flex: 0 0 100%;
     display: none;
     font-size: 13px;
+    height: 23vh;
 }
 .fb-action-btns {
     /* height: 20vh; */
     display: flex;
     justify-content: space-around;
+    /* height: 7vh; */
 }
 .fb-action-btns button {
     position: relative;

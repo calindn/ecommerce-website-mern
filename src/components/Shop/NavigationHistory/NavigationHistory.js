@@ -12,13 +12,17 @@ export default function NavigationHistory({ path }) {
                 <div className='home-link'>Home</div>
             </Link>
             {
-                arr.map((item) => {
+                arr.map((item, index) => {
                     let l = '/shop/' + item.split(' ').join('_')
-                    return (
-                        <Link style={{ textDecoration: 'none' }} to={l} >
-                            <div className='nh-item'>{item}</div>
-                        </Link>
-                    )
+
+                    if (index !== 1)
+                        return (
+                            <Link style={{ textDecoration: 'none' }} to={l} >
+                                <div className='nh-item'>{item}</div>
+                            </Link>
+                        )
+                    else
+                        return <div className='nh-item'>{item}</div>
                 })
             }
         </div >
