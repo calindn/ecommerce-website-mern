@@ -6,19 +6,19 @@ export default function ShipingInformation() {
     return (
         <div className='shippinginfo-container'>
             <div>
-                <ShippingCard posClass='call-pos-class' classes='call' htext='(123) 456-7890' text='Round-the-clock free hotline (24/7)' iconClassName='fa-phone-alt' />
+                <ShippingCard posClass='call-pos-class' classes='call' htext='(123) 456-7890' text='Suport 24/7' iconClassName='fa-phone-alt' />
             </div>
             <div className='vl'></div>
             <div>
-                <ShippingCard classes='free-shipping-text' htext='FREE SHIPPING' text='We provide you with fast and free delivery regardless of the product size and value.' iconClassName='fa-truck' />
+                <ShippingCard classes='free-shipping-text' htext='LIVRARE GRATIS' text='Beneficiaza de transport gratuit pentru promotiile noastre' iconClassName='fa-truck' />
             </div>
             <div className='vl'></div>
             <div>
-                <ShippingCard classes='ret-exch-text' htext='RETURN & EXCHANGE' text='You can return or exchange the item within 14 days.' iconClassName='fa-redo' />
+                <ShippingCard classes='ret-exch-text' htext='RETURNARE & SCHIMB' text='Retur gratuit in 30 de zile' iconClassName='fa-redo' />
             </div>
             <div className='vl'></div>
             <div>
-                <ShippingCard hclass='satisf-guarantee-heading' classes='satisf-guarantee-text' htext='SATISFACTION GUARANTEE' text='We are committed to your satisfaction with every order.' iconClassName='fa-thumbs-up' />
+                <ShippingCard hclass='satisf-guarantee-heading' classes='satisf-guarantee-text' htext='SATISFACTIE GARANTATA' text='Cea mai variata gama de produse' iconClassName='fa-thumbs-up' />
             </div>
         </div>
     )

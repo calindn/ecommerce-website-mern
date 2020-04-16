@@ -9,42 +9,42 @@ export default function ContactUs() {
     return (
         <div className='contact-us-container'>
             <div className='cu-h1'>
-                CONTACT US
+                CONTACTEAZĂ-NE
                 </div>
             <div className='cu-another-wrapper'>
                 <div className='l-side'>
                     <div className='txt'>
-                        Feel free to drop us a line via this contact form, or visit our headquarter.
-                        The NDA Sport team is always looking for feedbacks and comments from you to
-                        improve our service quality. Our working hours is from 9:00AM to 5:00PM from
-                        Monday to Friday (except holidays and weekends).
+                        Nu ezitați să ne lăsați un mesaj prin intermediul acestui formular sau să vizitați sediul nostru.
+                        Echipa noastră caută întotdeauna feedback-uri și comentarii de la dumneavoastră pentru
+                        îmbunătățirea calității serviciilor noastre. Programul nostru de lucru este de la 9:00 la 17:00 de
+                        Luni până vineri (cu excepția sărbătorilor și weekendurilor).
                         </div>
                     <div className='wrapper'>
                         <div className='address-wrapper'>
                             <div className='heading'>
                                 <i class="fas fa-map-marker-alt"></i>
-                                <span>Address</span>
+                                <span>Adresa</span>
                             </div>
                             <div className='content'>
-                                30 Beer Tunnel, Avenue 15th, Randall District, New York.
+                                Șoseaua Virtuții 148, București 060787
                             </div>
                         </div>
                         <div className='opening-h-wrapper'>
                             <div className='heading'>
                                 <i class="far fa-clock"></i>
-                                <span>Opening Hours</span>
+                                <span>Orele de lucru</span>
                             </div>
                             <div className='content'>
-                                Monday to Friday: 8:00AM - 8:00PM Saturday & Sunday: 10:00AM - 6:00PM
+                                Luni pana Vineri: 8:00 - 20:00, Sambata & Duminica: 10:00 - 18:00
                             </div>
                         </div>
                         <div className='phone-wrapper'>
                             <div className='heading'>
                                 <i class="fas fa-phone-alt"></i>
-                                <span>Phone</span>
+                                <span>Telefon</span>
                             </div>
                             <div className='content'>
-                                <span>Mobile: +61 3 9987 5654</span>
+                                <span>Nr: 0774 324 806</span>
                             </div>
                         </div>
                         <div className='email-wrapper'>
@@ -53,21 +53,21 @@ export default function ContactUs() {
                                 <span>Email</span>
                             </div>
                             <div className='content'>
-                                hello@ndasports.com
+                                techshop@example.com
                             </div>
                         </div>
                     </div>
                 </div>
                 <div className='r-side'>
                     <div className='heading'>
-                        Get in touch
+                        Formular
                     </div>
                     <div className='form-wrapper'>
-                        <input type='text' placeholder='Name' />
+                        <input type='text' placeholder='Nume' />
                         <input type='email' required='true' placeholder='Email *' />
-                        <input type='text' placeholder='Phone Number' />
-                        <textarea placeholder="What's on your mind?"></textarea>
-                        <button >Submit</button>
+                        <input type='text' placeholder='Nr. telefon mobil' />
+                        <textarea placeholder="Comentarii"></textarea>
+                        <button >Trimite</button>
                     </div>
                 </div>
             </div>

@@ -9,25 +9,25 @@ export default function CustomerService() {
     return (
         <div className='customer-service-container'>
             <div className='h1-cs'>
-                CUSTOMER SERVICE
+                SERVICIU CLIENTI
             </div>
             <div className='h4-txt1'>
-                DELIVERY
+                LIVRARE
             </div>
             <div className='p-txt1'>
                 <p className='text1'>
-                    HELLO AND WELCOME TO THE SHIPPING AND DELIVERY INFORMATION PAGE! HERE YOU CAN GET
-                    ACQUAINTED WITH USEFUL INFORMATION ON TERMS AND CONDITIONS OF OUR GOODS DELIVERY
+                    BUNĂ ZIUA ȘI BINE AȚI VENIT PE PAGINA DE INFORMARE PENTRU EXPEDIERE ȘI LIVRARE! AICI puteți obține  informații utile despre TERMENI ȘI CONDIȚII DE LIVRARE A MĂRFURILOR NOASTRE
                 </p>
             </div>
             <div className='p-txt2'>
                 <p className='text2'>
-                    You can purchase your items online and pick them up at our street store, or ship them directly to your doorstep.
-                    Shipping is free on some orders. We use the best carriers in the business to make sure your order gets to you on time.
-                    From the Secure Checkout page you'll see your item description, price and delivery timing. Where available,
-                    you can also choose a faster delivery method for each item on your order, for an additional fee.
-                    Delivery times vary according to your selected delivery address, availability of your items and the time of day you
-                    place your order.
+
+                    Puteți achiziționa articolele online și să le ridicați la magazinul nostru de pe stradă sau să le expediați direct la ușa dvs.
+                    Transportul este gratuit pentru anumite comenzi. Folosim cei mai buni transportatori din afacere pentru a ne asigura că comanda dvs.
+                    va ajunge la timp. Din pagina Secure Checkout veți vedea descrierea articolului, prețul și calendarul livrării.
+                    Acolo unde este disponibil, puteți alege, de asemenea, o metodă de livrare mai rapidă pentru fiecare articol din
+                    comanda dvs., pentru o taxă suplimentară. Timpurile de livrare variază în funcție de adresa de livrare selectată,
+                    disponibilitatea articolelor dvs. și ora din care faceți comanda.
                 </p>
             </div>
             <div className='h4-txt2'>
@@ -36,225 +36,47 @@ export default function CustomerService() {
             <div className='cost-table'>
                 <table>
                     <tr>
-                        <th><span>Services</span></th>
-                        <th><span>Locations</span></th>
-                        <th><span>Delivery Schedule</span></th>
-                        <th><span>Cost Per Shipment</span></th>
+                        <th><span>Servicii</span></th>
+                        <th><span>Locații</span></th>
+                        <th><span>Program de Livrare</span></th>
+                        <th><span>Cost Expediere</span></th>
                     </tr>
                     <tbody>
 
                         <tr>
-                            <td>Royal mail 1st Class Service (Order value $20 or less)</td>
-                            <td>All of UK & some European Countries</td>
-                            <td>1-3 days Monday - Saturday</td>
-                            <td>$5</td>
+                            <td>Royal mail Serviciu clasa 1 (Valoarea comenzii 100lei sau mai putin)</td>
+                            <td>Toată Romania  & cateva Țări Europene</td>
+                            <td>1-3 zile Luni - Sambata</td>
+                            <td>22.31lei</td>
                         </tr>
                         <tr>
-                            <td>Royal mail Tracker (Order value $50 or less)</td>
-                            <td>All of UK</td>
-                            <td>1-3 days Delivery 7.30am - 5.30am Monday - Friday</td>
-                            <td>$45</td>
+                            <td>Royal mail Tracker (Valoarea comenzii  223lei sau mai puțin)</td>
+                            <td>Toată Romania</td>
+                            <td>Livrare în 1-3 zile 7.30 - 17.30 Luni - Vineri</td>
+                            <td>200lei</td>
                         </tr>
                         <tr>
-                            <td>Standard Courier Delivery</td>
-                            <td>UK mainland only</td>
-                            <td>1-3 days Monday - Saturday</td>
-                            <td>$124</td>
+                            <td>Livrare Curier Standard</td>
+                            <td>Doar în Romania</td>
+                            <td>1 - 3 zile Luni - Sambata</td>
+                            <td>500lei</td>
                         </tr>
-                        <tr>
-                            <td>Standard Courier Delivery</td>
-                            <td>Northern Ireland, Eire, Scilly Isles</td>
-                            <td>1-3 days Delivery 7.30am - 5.30am Monday - Friday</td>
-                            <td>$11</td>
-                        </tr>
-                        <tr>
-                            <td>Royal mail 1st Class Service (Order value $20 or less)</td>
-                            <td>All of UK & some European Countries</td>
-                            <td>1-3 days Monday - Saturday</td>
-                            <td>$5</td>
-                        </tr>
-                        <tr>
-                            <td>Priority courier pre 12pm Next Working Day</td>
-                            <td>UK mainland only</td>
-                            <td>1-3 days Delivery 7.30am - 5.30am Monday - Friday</td>
-                            <td>$89</td>
-                        </tr>
-                        <tr>
-                            <td>Royal mail 1st Class Service (Order value $20 or less)</td>
-                            <td>All of UK & some European Countries</td>
-                            <td>1-3 days Monday - Saturday</td>
-                            <td>$72</td>
-                        </tr>
+
                     </tbody>
 
                 </table>
             </div>
             <div className='h4-txt3'>
-                FREE DELIVERY
+                LIVRARE GRATIS
             </div>
             <div className='p-txt3'>
                 <p className='text3'>
-                    Free two-day shipping is available on in-stock items. You can see in your bag if your item is in stock.
-                    Free two-day shipping is not available on customized, engraved products, and for certain order types,
-                    including orders paid for with financing or by bank transfer. To get free two-day shipping, you
-                    will need to place your order by 5pm, Monday to Friday. For instance, if you order your goods before
-                    5:00 pm, Monday to Friday we will deliver them in two business days.
+                    Livrarea gratuită de două zile este disponibilă pentru articolele din stoc. Puteți vedea  dacă
+                    articolul dvs. este în stoc. Transportul gratuit de două zile nu este disponibil pe produse personalizate,
+                    gravate și pentru anumite tipuri de comenzi, inclusiv pentru comenzile plătite cu finanțare sau prin transfer
+                    bancar. Pentru a beneficia de transport gratuit de două zile, va trebui să plasați comanda până la 17:00, de luni
+                    până vineri. De exemplu, dacă comandați mărfurile înainte de ora 17:00, de luni până vineri, le vom livra în două zile lucrătoare.
                 </p>
-            </div>
-            <div className='h4-txt4'>
-                TERMS & CONDITIONS
-            </div>
-            <div className='terms-and-cond-wrapper'>
-                <div className='entire-agreement-wrapper'>
-                    <div className='heading'>
-                        <i class="fas fa-check"></i>
-                        <span>ENTIRE AGREEMENT</span>
-                    </div>
-                    <div className='txt'>
-                        If you require a complete delivery of your orders, please enter an X in the
-                        Complete Delivery field on the shipping screen of the customer master record.
-                        The indicator is copied into the order header, which you can also use for the purpose.
-                    </div>
-                </div>
-                <div className='entire-agreement-wrapper'>
-                    <div className='heading'>
-                        <i class="fas fa-check"></i>
-                        <span>ENTIRE AGREEMENT</span>
-                    </div>
-                    <div className='txt'>
-                        If you require a complete delivery of your orders, please enter an X in the
-                        Complete Delivery field on the shipping screen of the customer master record.
-                        The indicator is copied into the order header, which you can also use for the purpose.
-                    </div>
-                </div>
-                <div className='controlling-terms-wrapper'>
-                    <div className='heading'>
-                        <i class="fas fa-check"></i>
-                        <span>CONTROLLING TERMS</span>
-                    </div>
-                    <div className='txt'>
-                        Buyer expressly agrees that Seller’s Invoice and these Terms and
-                        Conditions of Sale represent the complete agreement of the parties
-                        with respect to the sale of the product(s) listed on the Invoice and
-                        no different or additional terms or conditions in Buyer’s purchase order
-                        or in any other prior or subsequent communications in any way adding to,
-                        modifying or otherwise changing these Terms and Conditions of Sale shall be binding upon Seller.
-                    </div>
-                </div>
-                <div className='controlling-terms-wrapper'>
-                    <div className='heading'>
-                        <i class="fas fa-check"></i>
-                        <span>CONTROLLING TERMS</span>
-                    </div>
-                    <div className='txt'>
-                        Buyer expressly agrees that Seller’s Invoice and these Terms and
-                        Conditions of Sale represent the complete agreement of the parties
-                        with respect to the sale of the product(s) listed on the Invoice and
-                        no different or additional terms or conditions in Buyer’s purchase order
-                        or in any other prior or subsequent communications in any way adding to,
-                        modifying or otherwise changing these Terms and Conditions of Sale shall be binding upon Seller.
-                    </div>
-                </div>
-                <div className='entire-agreement-wrapper'>
-                    <div className='heading'>
-                        <i class="fas fa-check"></i>
-                        <span>ENTIRE AGREEMENT</span>
-                    </div>
-                    <div className='txt'>
-                        If you require a complete delivery of your orders, please enter an X in the
-                        Complete Delivery field on the shipping screen of the customer master record.
-                        The indicator is copied into the order header, which you can also use for the purpose.
-                    </div>
-                </div>
-                <div className='entire-agreement-wrapper'>
-                    <div className='heading'>
-                        <i class="fas fa-check"></i>
-                        <span>ENTIRE AGREEMENT</span>
-                    </div>
-                    <div className='txt'>
-                        If you require a complete delivery of your orders, please enter an X in the
-                        Complete Delivery field on the shipping screen of the customer master record.
-                        The indicator is copied into the order header, which you can also use for the purpose.
-                    </div>
-                </div>
-                <div className='controlling-terms-wrapper'>
-                    <div className='heading'>
-                        <i class="fas fa-check"></i>
-                        <span>CONTROLLING TERMS</span>
-                    </div>
-                    <div className='txt'>
-                        Buyer expressly agrees that Seller’s Invoice and these Terms and
-                        Conditions of Sale represent the complete agreement of the parties
-                        with respect to the sale of the product(s) listed on the Invoice and
-                        no different or additional terms or conditions in Buyer’s purchase order
-                        or in any other prior or subsequent communications in any way adding to,
-                        modifying or otherwise changing these Terms and Conditions of Sale shall be binding upon Seller.
-                    </div>
-                </div>
-                <div className='controlling-terms-wrapper'>
-                    <div className='heading'>
-                        <i class="fas fa-check"></i>
-                        <span>CONTROLLING TERMS</span>
-                    </div>
-                    <div className='txt'>
-                        Buyer expressly agrees that Seller’s Invoice and these Terms and
-                        Conditions of Sale represent the complete agreement of the parties
-                        with respect to the sale of the product(s) listed on the Invoice and
-                        no different or additional terms or conditions in Buyer’s purchase order
-                        or in any other prior or subsequent communications in any way adding to,
-                        modifying or otherwise changing these Terms and Conditions of Sale shall be binding upon Seller.
-                    </div>
-                </div>
-                <div className='entire-agreement-wrapper'>
-                    <div className='heading'>
-                        <i class="fas fa-check"></i>
-                        <span>ENTIRE AGREEMENT</span>
-                    </div>
-                    <div className='txt'>
-                        If you require a complete delivery of your orders, please enter an X in the
-                        Complete Delivery field on the shipping screen of the customer master record.
-                        The indicator is copied into the order header, which you can also use for the purpose.
-                    </div>
-                </div>
-                <div className='entire-agreement-wrapper'>
-                    <div className='heading'>
-                        <i class="fas fa-check"></i>
-                        <span>ENTIRE AGREEMENT</span>
-                    </div>
-                    <div className='txt'>
-                        If you require a complete delivery of your orders, please enter an X in the
-                        Complete Delivery field on the shipping screen of the customer master record.
-                        The indicator is copied into the order header, which you can also use for the purpose.
-                    </div>
-                </div>
-                <div className='controlling-terms-wrapper'>
-                    <div className='heading'>
-                        <i class="fas fa-check"></i>
-                        <span>CONTROLLING TERMS</span>
-                    </div>
-                    <div className='txt'>
-                        Buyer expressly agrees that Seller’s Invoice and these Terms and
-                        Conditions of Sale represent the complete agreement of the parties
-                        with respect to the sale of the product(s) listed on the Invoice and
-                        no different or additional terms or conditions in Buyer’s purchase order
-                        or in any other prior or subsequent communications in any way adding to,
-                        modifying or otherwise changing these Terms and Conditions of Sale shall be binding upon Seller.
-                    </div>
-                </div>
-                <div className='controlling-terms-wrapper'>
-                    <div className='heading'>
-                        <i class="fas fa-check"></i>
-                        <span>CONTROLLING TERMS</span>
-                    </div>
-                    <div className='txt'>
-                        Buyer expressly agrees that Seller’s Invoice and these Terms and
-                        Conditions of Sale represent the complete agreement of the parties
-                        with respect to the sale of the product(s) listed on the Invoice and
-                        no different or additional terms or conditions in Buyer’s purchase order
-                        or in any other prior or subsequent communications in any way adding to,
-                        modifying or otherwise changing these Terms and Conditions of Sale shall be binding upon Seller.
-                    </div>
-                </div>
             </div>
 
             <div className='cs-footer-copyright'>

@@ -32,13 +32,20 @@ export default function FilterBy({ handleFilterByClick, handleClear, category })
     const showBrands = () => {
         let bl = document.getElementById('brand-list');
         let arrow = document.querySelector('.arrow-down-i');
+        let bc = document.querySelector('.brands-container');
+        let ic = document.querySelector('.information-container');
         console.log(bl.style.display);
         if (bl.style.display == '' || bl.style.display === 'none') {
             arrow.style.transform = 'rotate(180deg)';
             bl.style.display = 'block';
+            bc.style.height = '29.5vh'
+            ic.style.bottom = '-3vh';
         } else {
             arrow.style.transform = '';
             bl.style.display = 'none';
+            bc.style.height = ''
+            ic.style.bottom = '15.4vh';
+
         }
     }
     const handleApplyBtnClick = (e) => {
@@ -62,8 +69,10 @@ export default function FilterBy({ handleFilterByClick, handleClear, category })
         document.getElementById('max-price').value = '';
 
         document.querySelectorAll('.checkbox-container-brands span input').forEach((item) => {
-            if (item.checked === true)
+            if (item.checked === true) {
                 item.checked = false;
+                console.log('cleared');
+            }
 
         })
         setChecked(initialValuesCheckedArr)
@@ -104,7 +113,7 @@ export default function FilterBy({ handleFilterByClick, handleClear, category })
                                     return (
                                         <div key={key} style={{ 'display': 'flex', 'align-items': 'center' }}>
                                             <Checkbox
-                                                checked={checkedValue[key]}
+                                                checked={checkedValue[key] ? checkedValue[key] : false}
                                                 id={key}
                                                 className='checkbox-container-brands '
                                                 color="primary"

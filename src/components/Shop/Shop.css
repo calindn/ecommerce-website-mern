@@ -4,8 +4,8 @@
 .information-container {
     position: relative;
     width: 17.9vw;
-    /* bottom: 7.8vh; */
-    bottom: 16.5vh;
+        /* bottom: 7.8vh; */
+    bottom: 15.4vh;
 
 }
 .category-name-heading {
@@ -20,7 +20,7 @@
 .fltrby-container {
     width: 18.5vw;
     position: relative;
-    bottom: 17vh;
+    bottom: 16vh;
 }
 .shop-wrapper {
     display: flex;
@@ -47,10 +47,12 @@
 .aside-container {
     display: flex;
     flex-direction: column;
+    /* flex-wrap: wrap; */
     justify-content: space-between;
     position: relative;
     left: 11.3vw;
 }
+
 .aside-container > div {
     margin-bottom: 2vh;
 }

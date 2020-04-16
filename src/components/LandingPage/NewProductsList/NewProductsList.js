@@ -23,41 +23,19 @@ export default class NewProductsList extends Component {
         return (
             <div className='newproductslist-container'>
                 <div className='newproductslist-heading'>
-                    <span>PRODUCTS</span>
+                    <span>PRODUSE</span>
                 </div>
 
                 <div className='products-container'>
                     {
                         products.map((product) => {
                             return (<div>
-                                <Product src={product.poze[0].substr(1)} text={product.nume} price={product.pret} brandName={product.numeBrand} />
+                                {/* <Product src={product.poze} text={product.nume} price={product.pret} brandName={product.numeBrand} /> */}
+                                <Product sku={product._id} src={product.poze} brandName={product.numeBrand} text={product.nume} price={product.pret} listaAtribute={product.lista_atribute} categorie={product.categorie} descriere={product.descriere} />
                             </div>)
                         })
                     }
-                    {/* <div>
-                        <Product src={product_img1} text='Silicone Case for iPad mini' price='$45.00' />
-                    </div>
-                    <div>
-                        <Product src={product_img2} text='Silicone Case for iPad mini' price='$45.00' />
-                    </div>
-                    <div>
-                        <Product src={product_img3} text='Silicone Case for iPad mini' price='$45.00' />
-                    </div>
-                    <div>
-                        <Product src={product_img4} text='Silicone Case for iPad mini' price='$45.00' />
-                    </div>
-                    <div>
-                        <Product src={product_img5} text='Silicone Case for iPad mini' price='$45.00' />
-                    </div>
-                    <div>
-                        <Product src={product_img6} text='Silicone Case for iPad mini' price='$45.00' />
-                    </div>
-                    <div>
-                        <Product src={product_img7} text='Silicone Case for iPad mini' price='$45.00' />
-                    </div>
-                    <div>
-                        <Product src={product_img8} text='Silicone Case for iPad mini' price='$45.00' />
-                    </div> */}
+
                 </div>
 
             </div>

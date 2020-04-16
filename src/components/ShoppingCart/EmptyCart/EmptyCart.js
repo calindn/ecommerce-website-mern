@@ -9,13 +9,11 @@ export default function EmptyCart() {
     return (
         <div className='empty-cart-container'>
             <div className='empty-c-heading'>
-                SHOPPING CART
+                COSUL TAU ESTE GOL
             </div>
-            <div className='empty-cart-heading'>
-                Your shopping cart is empty
-            </div>
+
             <Link to='/'>
-                <button>CONTINUE SHOPPING</button>
+                <button>CONTINUA CUMPARATURILE</button>
             </Link>
             <div className='cart-footer-copyright'>
                 <div>

@@ -26,7 +26,7 @@ export default class ProductDetailView extends React.Component {
                         <ImageSlideshow images={src} />
                     </div>
                     <div className='rsp-desc-wrapper'>
-                        <RightSideProductDescription state={this.props.location.state} src={src} price={price} brandName={brandName} listaAtribute={listaAtribute} text={text} categorie={categorie} descriere={descriere} />
+                        <RightSideProductDescription state={this.props.location.state} />
                     </div>
                 </div>
 

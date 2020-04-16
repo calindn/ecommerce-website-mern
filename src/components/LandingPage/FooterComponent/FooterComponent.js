@@ -20,28 +20,30 @@ export default function FooterComponent() {
                         <Logo class_name='colorW' />
                     </div>
                     <div className='fc-c1-txt'>
-                        Get the power to do more your way. Whether you're a gamer,
-                        a designer, a student or parent, a writer, a dealmaker,
-                        or a Jack or Jill of all trades – at the CompShop you'll
-                        find the perfect PCs for all that you do. Explore our collection
-                        by type – and discover devices that can make every project your best.
+
+
+                        Obțineți puterea de a  reusi sa faceti mai mult. Indiferent dacă sunteți un jucător,
+                        un designer, un student sau un părinte, un scriitor, un dealer sau un Jack
+                        sau Jill din toate meseriile - la TechShop veți găsi calculatoarele perfecte
+                        pentru tot ceea ce faceți. Explorați colecția noastră după tip - și descoperiți
+                        dispozitive care pot face ca fiecare proiect să fie cel mai bun al dvs.
                     </div>
                 </div>
                 <div className='content2'>
                     <div className='fc-c2-heading'>
-                        INFORMATION
+                        INFORMATII
                     </div>
                     <div className='fc-c2-ul-container'>
                         <ul>
                             <Link onClick={() => { scrollToTop() }} style={linkStyles} to='/about_us'>
-                                <li>About Us</li>
+                                <li>Despre Noi</li>
                             </Link>
                             <Link onClick={() => { scrollToTop() }} style={linkStyles} to='/customer_service'>
-                                <li>Customer Service</li>
+                                <li>Suport Clienti</li>
                             </Link>
                             <li>Privacy Policy</li>
                             <Link onClick={() => { scrollToTop() }} style={linkStyles} to='/contact_us'>
-                                <li>Contact Us</li>
+                                <li>Contacteaza-ne</li>
                             </Link>
                             <li>Blog</li>
                         </ul>
@@ -49,18 +51,18 @@ export default function FooterComponent() {
                 </div>
                 <div className='content3'>
                     <div className='fc-c2-heading'>
-                        WHY BUY FROM US
+                        DE CE SA CUMPERI DE LA NOI
                     </div>
                     <div className='fc-c3-ul-container'>
                         <ul>
                             <Link onClick={() => { scrollToTop() }} style={linkStyles} to='/shipping_delivery'>
-                                <li>Shipping & Delivery</li>
+                                <li>Transport & Livrare</li>
                             </Link>
                             <Link onClick={() => { scrollToTop() }} style={linkStyles} to='/secure_payment'>
-                                <li>Secure Payment</li>
+                                <li>Plata securizata</li>
                             </Link>
-                            <li>Guarantee</li>
-                            <li>Terms & Conditions</li>
+                            <li>Garantie</li>
+                            <li>Termeni & Conditii</li>
                             <li>FAQ</li>
                         </ul>
                     </div>
@@ -74,7 +76,7 @@ export default function FooterComponent() {
                             <i class="fas fa-phone-alt"></i><span>(123) 456-7890</span>
                         </div>
                         <div>
-                            <i class="far fa-clock"></i><span>7 days a week from 9:00 am to 7:00 pm</span>
+                            <i class="far fa-clock"></i><span>7 zile pe saptamana de la 9:00 la 19:00</span>
                         </div>
                         <div>
                             <i class="far fa-envelope"></i><span>info@demolink.org</span>

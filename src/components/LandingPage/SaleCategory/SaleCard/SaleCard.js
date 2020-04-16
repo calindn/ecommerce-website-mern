@@ -7,7 +7,7 @@ export default function SaleCard({ img, btnPresent, text, position }) {
             <img src={img} />
             <div className='salecard-txt-wrapper'>
                 <p className={position === 'top' ? 'salecard-txt topPos' : 'salecard-txt'} > {text}</p>
-                {btnPresent ? <button>LEARN MORE</button> : null}
+                {btnPresent ? <button>DETALII</button> : null}
             </div>
 
         </div>

@@ -42,11 +42,16 @@ export default class LandingPage extends Component {
 
         const copy = [...data];
 
-        let filtered = data.filter((item, index) => { return (index % 5 === 0 && index <= 35) })
+        // let filtered = data.filter((item, index) => { return (index % 5 === 0 && index <= 35) })
         // console.log(filtered[0])
 
-
-        this.setState({ products: filtered })
+        // select 8 products randomly from related array 
+        let randomSelected = [];
+        while (randomSelected.length < 8) {
+            let r = Math.floor(Math.random() * data.length);
+            if (randomSelected.indexOf(data[r]) === -1) randomSelected.push(data[r]);
+        }
+        this.setState({ products: randomSelected })
     }
 
     render() {

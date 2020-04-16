@@ -13,7 +13,7 @@ export default function Logo({ class_name }) {
     return (
         <Link className='logo-link-class' onClick={scrollToTop} style={{ 'textDecoration': 'none' }} to='/'>
             <div className={'logo-container ' + class_name}>
-                <span id='comp'>COMP</span>
+                <span id='comp'>TECH</span>
                 <span id='shop'>SHOP</span>
             </div>
         </Link>

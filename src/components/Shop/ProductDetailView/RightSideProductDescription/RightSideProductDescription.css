@@ -98,7 +98,8 @@
 
 .add-to-cart-wrapper button {
     position: relative;
-    bottom: 43vh;
+    bottom: 24vh;
+    right: 2px;
     width: 11.3vw;
     height: 45px;
     padding: 5px;

@@ -30,11 +30,11 @@ function App() {
         <Route exact path='/' component={LandingPage} /> */}
         <Route path='/shop/:category' component={(props) => <Shop {...props} key={window.location.pathname} />} />
         <Route exact path='/details' component={(props) => <ProductDetailView {...props} key={window.location.pathname} />} />
-        <Route exact path='/about_us' component={AboutUs} />
-        <Route exact path='/customer_service' component={CustomerService} />
-        <Route exact path='/shipping_delivery' component={ShippingDelivery} />
-        <Route exact path='/secure_payment' component={SecurePayment} />
-        <Route exact path='/contact_us' component={ContactUs} />
+        <Route exact path='/despre_noi' component={AboutUs} />
+        <Route exact path='/servicii_clienti' component={CustomerService} />
+        <Route exact path='/expediere_si_livrare' component={ShippingDelivery} />
+        <Route exact path='/plata_securizata' component={SecurePayment} />
+        <Route exact path='/contact' component={ContactUs} />
         <Route exact path='/authorization' component={Authorization} />
         <Route exact path='/forgotPass' component={ForgotPassword} />
         <Route exact path='/registration' component={Registration} />

@@ -16,43 +16,7 @@ export default function ShoppingCart({ match, location }) {
     let inCart = JSON.parse(localStorage.getItem('inCart') || "[]");
 
     const originalCartProducts = inCart;
-    // const originalCartProducts = [{
-    //     img: 'https://images.unsplash.com/photo-1527698266440-12104e498b76?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80',
-    //     name: 'Silicone Case for iPad mini',
-    //     price: 454.00,
-    //     quantity: 1,
-    //     totalPrice: 45
-    // },
-    // {
-    //     img: 'https://images.unsplash.com/photo-1527698266440-12104e498b76?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80',
-    //     name: 'Silicone Case for iPad mini',
-    //     price: 45.00,
-    //     quantity: 1,
-    //     totalPrice: 45
-    // },
-    // {
-    //     img: 'https://images.unsplash.com/photo-1527698266440-12104e498b76?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80',
-    //     name: 'Silicone Case for iPad mini',
-    //     price: 45.00,
-    //     quantity: 1,
-    //     totalPrice: 45
-    // },
-    // {
-    //     img: 'https://images.unsplash.com/photo-1527698266440-12104e498b76?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80',
-    //     name: 'Silicone Case for iPad mini',
-    //     price: 45.00,
-    //     quantity: 1,
-    //     totalPrice: 45
-    // },
-    // {
-    //     img: 'https://images.unsplash.com/photo-1527698266440-12104e498b76?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80',
-    //     name: 'Silicone Case for iPad mini',
-    //     price: 45.00,
-    //     quantity: 1,
-    //     totalPrice: 45
-    // }
-    // ]
-    // const cartProducts = [...originalCartProducts];
+
 
     let sum = 0;
     originalCartProducts.forEach(item => sum += item.price)
@@ -163,7 +127,7 @@ export default function ShoppingCart({ match, location }) {
         cartProducts.length === 0 ? <EmptyCart /> :
             <div className='shopping-cart-container'>
                 <div className='shop-c-heading'>
-                    SHOPPING CART
+                    COSUL MEU
             </div>
                 <div className='products-table'>
                     <table>
@@ -172,19 +136,19 @@ export default function ShoppingCart({ match, location }) {
 
                             </th>
                             <th>
-                                <span>Name</span>
+                                <span>Nume</span>
                             </th>
                             <th>
-                                <span>Price</span>
+                                <span>Pret</span>
                             </th>
                             <th>
-                                <span>Quantity</span>
+                                <span>Cantitate</span>
                             </th>
                             <th>
 
                             </th>
                             <th>
-                                <span>Total Price</span>
+                                <span>Pretul Total</span>
                             </th>
                         </tr>
                         {
@@ -213,7 +177,7 @@ export default function ShoppingCart({ match, location }) {
                                     </td>
                                     <td className='rb-td'>
                                         <span onClick={() => removeFromCart(idx)} className='remove-btn'>
-                                            REMOVE
+                                            STERGE
                                     </span>
                                     </td>
                                     <td>
@@ -236,19 +200,19 @@ export default function ShoppingCart({ match, location }) {
                     <div className='control-btns-wrapper'>
                         <div>
                             <Link to='/'>
-                                <button className='back-ts'>BACK TO SHOP</button>
+                                <button className='back-ts'>INAPOI</button>
                             </Link>
                         </div>
                         <div>
-                            <button className='checkout-btn'>CHECKOUT</button>
+                            <button className='checkout-btn'>TRIMITE COMANDA</button>
                         </div>
                     </div>
                 </div>
                 <div className='discount-code-wrapper'>
-                    <button onClick={handleDiscountBtnClick} className='dc-btn'>DISCOUNT CODE</button>
+                    <button onClick={handleDiscountBtnClick} className='dc-btn'>COD DISCOUNT</button>
                     <div className='to-be-shown-on-click'>
-                        <input type='text' placeholder='YOURPROMOCODE' />
-                        <button>APPLY</button>
+                        <input type='text' placeholder='CODULTAUPROMO' />
+                        <button>APLICA</button>
                     </div>
                 </div>
                 <div className='cart-footer-copyright'>

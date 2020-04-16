@@ -10,16 +10,16 @@ export default function ForgotPassword() {
     return (
         <div className='forgot-pass-container'>
             <div className='forgot-pass-heading'>
-                Forgot Password
+                Schimbare Parola
             </div>
-            <input type='email' required='true' placeholder='Email Address' />
+            <input type='email' required='true' placeholder='Adresa Email' />
             <div className='fp-btns'>
                 <div>
-                    <button>RESTORE</button>
+                    <button>RESTAURARE</button>
                 </div>
                 <Link to='/authorization'>
                     <div>
-                        <button>CANCEL</button>
+                        <button>RENUNTA</button>
                     </div>
                 </Link>
 

@@ -18,15 +18,6 @@ import ProductCategory from '../LandingPage/CategoryList/ProductCategory/Product
 
 import Product from '../LandingPage/NewProductsList/Product/Product'
 
-import product_img1 from '../LandingPage/MainImageSlider/assets/product_img1.jpg'
-import product_img2 from '../LandingPage/MainImageSlider/assets/product_img2.jpg'
-import product_img3 from '../LandingPage/MainImageSlider/assets/product_img3.jpg'
-import product_img4 from '../LandingPage/MainImageSlider/assets/product_img4.jpg'
-import product_img5 from '../LandingPage/MainImageSlider/assets/product_img5.jpg'
-import product_img6 from '../LandingPage/MainImageSlider/assets/product_img6.jpg'
-import product_img7 from '../LandingPage/MainImageSlider/assets/product_img7.jpg'
-import product_img8 from '../LandingPage/MainImageSlider/assets/product_img8.jpg'
-
 
 
 const useStyles = makeStyles((theme) => ({
@@ -50,9 +41,9 @@ export default function Shop({ initalCategory, match }) {
     const [index, setIndex] = useState(0);
 
 
-    const categoryList = ['Smartphone', 'Laptop', 'Tableta', 'Smartwatch', 'Televizor'];
-    const infoList = ['About Us', 'Customer Service', 'Shipping Delivery', 'Secure Payment', 'Contact Us'];
-    const sortByValues = ['Oldest First', 'Newest First', 'Price: Low to High', 'Price: High to Low', 'Name: A-Z', 'Name: Z-A'];
+    const categoryList = ['Smartphone', 'Laptop', 'Tableta', 'Smartwatch', 'Televizor', 'Toate'];
+    const infoList = ['Despre Noi', 'Servicii Clienti', 'Expediere si Livrare', 'Plata Securizata', 'Contact'];
+    const sortByValues = ['Pret: Ascendent', 'Pret: Descendent', 'Nume: A-Z', 'Nume: Z-A'];
 
 
 
@@ -91,23 +82,22 @@ export default function Shop({ initalCategory, match }) {
         // console.log(originalProdArr[0].props.children.props.text);
 
         const sortStringsCmp = (a, b) => {
-            if (a.props.children.props.text < b.props.children.props.text) {
+            if (a.nume < b.nume) {
                 return -1;
             }
-            if (a.props.children.props.text > b.props.children.props.text) {
+            if (a.nume > b.nume) {
                 return 1;
             }
             return 0;
         }
 
-        if (prodArr[0] !== null)
-            prodArr = [...originalProdArr];
-
+        // if (prodArr[0] !== null)
+        prodArr = [...originalProdArr];
         switch (value) {
-            case 'Price: Low to High':
+            case 'Pret: Ascendent':
                 prodArr.sort((item1, item2) => {
-                    let price1 = parseFloat(item1.props.children.props.price.slice(1));
-                    let price2 = parseFloat(item2.props.children.props.price.slice(1));
+                    let price1 = parseFloat(item1.pret.slice(0, -3));
+                    let price2 = parseFloat(item2.pret.slice(0, -3));
                     return price1 - price2;
 
                 });
@@ -115,10 +105,10 @@ export default function Shop({ initalCategory, match }) {
                 setPageNr(1);
                 setIndex(0);
                 break;
-            case 'Price: High to Low':
+            case 'Pret: Descendent':
                 prodArr.sort((item1, item2) => {
-                    let price1 = parseFloat(item1.props.children.props.price.slice(1));
-                    let price2 = parseFloat(item2.props.children.props.price.slice(1));
+                    let price1 = parseFloat(item1.pret.slice(0, -3));
+                    let price2 = parseFloat(item2.pret.slice(0, -3));
                     return price2 - price1;
 
                 });
@@ -126,13 +116,13 @@ export default function Shop({ initalCategory, match }) {
                 setPageNr(1);
                 setIndex(0);
                 break;
-            case 'Name: A-Z':
+            case 'Nume: A-Z':
                 prodArr.sort(sortStringsCmp);
                 setProdArr(prodArr);
                 setPageNr(1);
                 setIndex(0);
                 break;
-            case 'Name: Z-A':
+            case 'Nume: Z-A':
                 prodArr.sort(sortStringsCmp).reverse();
                 setProdArr(prodArr);
                 setPageNr(1);
@@ -231,7 +221,7 @@ export default function Shop({ initalCategory, match }) {
                 <div className='shop-main-container'>
                     <div className='view-criterias'>
                         <div className='sortby-container'>
-                            <SelectList initialValue={selectedFilter} updateProps={updateProps} label='Sort By' values={sortByValues} />
+                            <SelectList initialValue={selectedFilter} updateProps={updateProps} label='Sortează' values={sortByValues} />
                         </div>
                         <Pagination
                             id='pagination-component'
@@ -245,16 +235,15 @@ export default function Shop({ initalCategory, match }) {
                     <div className='shop-prod-container'>
                         {
                             prodArr === [] || prodArr[0] === null ? null : prodArr.map((product, idx) => {
-
                                 return idx >= index && idx <= index + 8 ? (<div className='p-item'>
-                                    <Product src={product.poze} brandName={product.numeBrand} text={product.nume} price={product.pret} listaAtribute={product.lista_atribute} categorie={product.categorie} descriere={product.descriere} />
+                                    <Product sku={product._id} src={product.poze} brandName={product.numeBrand} text={product.nume} price={product.pret} listaAtribute={product.lista_atribute} categorie={product.categorie} descriere={product.descriere} />
                                 </div>) : null
                             })
                         }
                     </div>
                     <div className='view-criterias-down'>
                         <div className='sortby-container-down'>
-                            <SelectList initialValue={selectedFilter} updateProps={updateProps} label='Sort By' values={sortByValues} />
+                            <SelectList initialValue={selectedFilter} updateProps={updateProps} label='Sortează' values={sortByValues} />
                         </div>
                         <Pagination
                             id='pagination-component-down'

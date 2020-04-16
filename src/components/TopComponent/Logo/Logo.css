@@ -6,6 +6,7 @@
     top: 2.5px;
     right: 47px;
     cursor: pointer;
+    user-select: none;
 }
 #shop {
     color: #1E88E5;

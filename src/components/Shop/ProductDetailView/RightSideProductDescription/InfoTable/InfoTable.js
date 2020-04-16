@@ -1,53 +1,35 @@
 import React, { Fragment } from 'react';
-import styled from 'styled-components';
+import './InfoTable.css'
 
-export default function InfoTable({ numeGrup, atributeGrup }) {
-
-    // const tableRowsToDisplay = [];
-    // let i = 0;
-    // for (let prop in tableType) {
-    //     if (Object.prototype.hasOwnProperty.call(tableType, prop)) {
-    //         // do stuff
-    //         tableRowsToDisplay[i] = {};
-    //         tableRowsToDisplay[i].title = titles[name][prop];
-    //         tableRowsToDisplay[i].value = tableType[prop];
-    //         i++;
-    //     }
-    // }
+export default function InfoTable({ listaAtribute }) {
 
     return (
         <Fragment>
-            <div>
-                <tr>
-                    <th>{numeGrup}</th>
-                    <th></th>
-                </tr>
+            <div className='infoTablesContainer'>
                 {
-                    // tableRowsToDisplay.map((item, i) => {
-                    //     return (<tr key={i}><td>{item.title}</td><td>{item.value}</td></tr>);
-                    // })
+                    listaAtribute.map((item, idx) => {
+                        return (
+                            <table className='info-tbl' key={idx}>
+                                <tr>
+                                    <th>{item.numeGrup}</th>
+                                    <th></th>
+                                </tr>
+                                {
+                                    item.atribute_grup.map((atribut, idx) => {
+                                        return (
+                                            <tr key={idx}>
+                                                <td><span>{atribut.denumire_atribut.split('_').map((s) => s.charAt(0).toUpperCase() + s.slice(1)).join(' ') + ':'}</span></td>
+                                                <td><span>{atribut.valoare_atribut}</span></td>
+                                            </tr>
+                                        )
+                                    })
+                                }
+                            </table>
+                        )
+                    })
                 }
-                <tr>
-                    <td>asdjalksjd</td>
-                    <td>asda</td>
-                </tr>
-
             </div>
         </Fragment >
     )
 }
 
-const TableWrapper = styled.table`
-    border-collapse: collapse;
-    margin-right: 0.5rem;
-    th, td {
-        text-align: left;
-        padding: 8px;
-    }  
-    tbody tr:nth-child(even) {background-color: white;}
-    th {
-        background-color: var( --greenColor);
-        color: white;
-    }
-
-`;

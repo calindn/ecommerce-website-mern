@@ -10,7 +10,7 @@ export default function CopyrightComponent() {
     return (
         <div className='cpr-container'>
             <i class="far fa-copyright"></i>
-            <span> 2020 CompoShop. All Right Reserved.</span>
+            <span> 2020 TechShop. Toate Drepturile Rezervate</span>
             <i onClick={() => topFunction()} id="toTop" class="fas fa-arrow-up"></i>
         </div>
     )

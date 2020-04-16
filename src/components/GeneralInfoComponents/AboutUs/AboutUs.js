@@ -9,21 +9,27 @@ export default function AboutUs() {
     return (
         <div className='aboutus-container'>
             <div className='h1-aboutus'>
-                <h1>ABOUT US </h1>
+                <h1>DESPRE NOI </h1>
             </div>
             <div className='h4-txt'>
-                <h4>Catering to your requirements, handling your needs with care</h4>
+                <h4>
+                    Respectăm cerințele dvs. și gestionăm nevoile cu grijă
+                </h4>
             </div>
             <div className='p-txt'>
-                <p className='text'>Our store is more than just another average online retailer. We sell not only top quality products, but give our customers a positive online shopping experience. Forget about struggling to do everything at once: taking care of the family, running your business, walking your dog, cleaning the house, doing the shopping, etc. Purchase the goods you need every day or just like in a few clicks or taps, depending on the device you use to access the Internet. We work to make your life more enjoyable.</p>
+            {/* <p className='text'>Our store is more than just another average online retailer. We sell not only top quality products, but give our customers a positive online shopping experience. Forget about struggling to do everything at once: taking care of the family, running your business, walking your dog, cleaning the house, doing the shopping, etc. Purchase the goods you need every day or just like in a few clicks or taps, depending on the device you use to access the Internet. We work to make your life more enjoyable.</p> */}
+            <p className='text'>Magazinul nostru este mai mult decât un alt retailer online mediu. Vindem nu numai produse de cea mai bună calitate, dar oferim clienților noștri o experiență pozitivă de cumpărături online. 
+                
+Cumpărați bunurile de care aveți nevoie în fiecare zi doar  în câteva clicuri sau apăsări, în funcție de dispozitivul pe care îl utilizați pentru a accesa Internetul. Lucrăm pentru a vă face viața mai plăcută.
+            </p>
             </div>
             <div className='stats'>
                 <div id='products-avlbl'>
                     <div>
-                        14500
+                        60
                     </div>
                     <div>
-                        PRODUCTS AVAILABLE
+                        PRODUSE VALABILE
                     </div>
                 </div>
                 <div id='comeback-clt-percentg'>
@@ -31,15 +37,15 @@ export default function AboutUs() {
                         81%
                     </div>
                     <div>
-                        CLIENTS COME BACK
+                        CLIENTI REVIN 
                     </div>
                 </div>
                 <div id='sitemembers'>
                     <div>
-                        10 mlns
+                        1000 
                     </div>
                     <div>
-                        SITE MEMBERS
+                        MEMBRI AI SITE-ULUI
                     </div>
                 </div>
             </div>
@@ -48,17 +54,18 @@ export default function AboutUs() {
             </div>
 
             <div className='store-events-wrapper'>
-                <div className='lbl'>STORE EVENTS</div>
+                <div className='lbl'></div>
                 <div className='store-events'>
                     <div className='st-ev-1'>
                         <div className='stev1-icon-wrapper'>
                             <i class="fas fa-search"></i>
                         </div>
                         <div className='heading-txt'>
-                            FOR CONVENIENCE OF CHOICE
+                            PENTRU CONVENIENȚA ALEGERII
                         </div>
                         <div className='txt'>
-                            We think about the convenience of your choice. Our products are supplied with star rating that should help hesitant buyers to take a decision. What’s more, you can search our site if you know exactly what you are looking for or use a bunch of different filters that will considerably save your time and efforts.
+                           
+Ne gândim la comoditatea alegerii tale. Produsele noastre sunt furnizate cu rating top care ar trebui să-i ajute pe cumpărătorii ezitați să ia o decizie. Mai mult, puteți căuta pe site-ul nostru dacă știți exact ce căutați sau utilizați o serie de filtre diferite care vă vor economisi considerabil timpul și eforturile.
                         </div>
                     </div>
                     <div className='st-ev-2'>
@@ -66,57 +73,54 @@ export default function AboutUs() {
                             <i class="fas fa-car"></i>
                         </div>
                         <div className='heading-txt'>
-                            DELIVERY TO ALL REGIONS
+                            LIVRARE IN TOATE REGIUNILE
                         </div>
                         <div className='txt'>
-                            We deliver our goods worldwide. No matter where you live, your order will be shipped in time and delivered right to your door or to any other location you have stated. The packages are handled with utmost care, so the ordered products will be handed to you safe and sound, just like you expect them to be.
-                        </div>
+                        Livrăm mărfurile noastre în toată lumea. Indiferent de locul în care locuiți, comanda dvs. va fi expediată la timp și livrată chiar la ușa dvs. sau în orice altă locație declarată. Pachetele sunt tratate cu cea mai mare atenție, astfel încât produsele comandate vă vor fi în siguranță și solide, la fel cum vă așteptați să fie.                        </div>
                     </div>
                     <div className='st-ev-3'>
                         <div className='stev3-icon-wrapper'>
                             <i class="fas fa-thumbs-up"></i>
                         </div>
-                        <div className='heading-txt'>
-                            THE HIGHEST QUALITY OF PRODUCTS
+                        <div className='heading-txt'>           
+CEA MAI MARE CALITATE A PRODUSELOR
                         </div>
                         <div className='txt'>
-                            We guarantee the highest quality of the products we sell. Several decades of successful operation and millions of happy customers let us feel certain about that. Besides, all items we sell pass thorough quality control, so no characteristics mismatch can escape the eye of our professionals.
-                        </div>
+Garantăm cea mai înaltă calitate a produselor pe care le comercializăm. Câteva decenii de operare de succes și mii de clienți fericiți ne lasă să ne simțim siguri în acest sens. În plus, toate articolele pe care le comercializăm trec printr-un control de calitate detaliat, astfel încât nicio nepotrivire a caracteristicilor nu poate scăpa de ochii profesioniștilor noștri.                        </div>
                     </div>
                 </div>
             </div>
             <div className='au-hrow2'></div>
             <div className='testimonials-wrapper'>
-                <div className='lbl'>TESTIMONIALS</div>
+                <div className='lbl'>TESTIMONIALE</div>
                 <div className='tquotes-icon'><i class="fas fa-quote-right"></i></div>
                 <div className='testimonials'>
                     <div>
                         <div className='name'>EDNA BARTON</div>
                         <div className='commentary'>
-                            Having the distressing experience with some online shops before decided
-                            to say ‘’thank you” to all personnel of this store. You are not only friendly,
-                            but deliver really good products in the shortest possible terms. In a word,
-                            i am absolutely happy with my purchase and the service. Everything was perfect!
+                        Având experiența deranjantă cu unele magazine online înainte am decis
+                            sa spun „„ mulțumesc ” la tot personalul acestui magazin. Nu este numai prietenos,
+                            dar livrează produse cu adevărat bune în termenii cât mai scurti. Intr-un cuvant,
+                            sunt absolut multumita de achizitionarea si serviciul prestat. Totul a fost perfect!
                         </div>
                     </div>
                     <div>
                         <div className='name'>ROBERT JOHNSON</div>
                         <div className='commentary'>
-                            Guys, you rock! Made a purchase at your store recently. The order has been
-                            shipped and delivered on time. The quality is superb! The price is quite
-                            reasonable. Told all my friends about your excellent service and the variety
-                            of choice. I think i’ll be your loyal customer in future as well. I wish your
-                            store many more years of prosperity.
+                            Am făcut o achiziție recent la magazinul vostru. Comanda a fost
+                            expediată și livrată la timp. Calitatea este superbă! Prețul este destul
+                            rezonabil. Le-am spus tuturor prietenilor mei despre serviciul dvs. excelent și despre varietatea
+                            la alegere. Cred că voi fi și clientul vostru fidel pe viitor. Doresc
+                            magazinului vostru multi ani de prosperitate in continuare.
                         </div>
                     </div>
                     <div>
                         <div className='name'>JESSICA PRISTON</div>
                         <div className='commentary'>
-                            Having the distressing experience with some online shops before decided
-                            to say ‘’thank you” to all personnel of this store. You are not only friendly,
-                            but deliver really good products in the shortest possible terms.
-                            In a word, i am absolutely happy with my purchase and the service.
-                            Everything was perfect!
+                        Recomand acest magazin pentru calitatea produselor și serviciilor, 
+                        viteza de livrare și consultanța oferită. 
+                        De fiecare dată am beneficiat de servicii impecabile, înțelegere, răbdare. 
+                        Mulțumesc pentru valoarea pe care o oferiți în continuare.
                         </div>
                     </div>
                 </div>

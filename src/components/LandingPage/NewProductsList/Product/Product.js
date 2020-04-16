@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import './Product.css'
 
 
-export default function Product({ src, text, price, toHideButton, brandName, listaAtribute, categorie, descriere }) {
+export default function Product({ sku, src, text, price, toHideButton, brandName, listaAtribute, categorie, descriere }) {
 
     // load image 
     let images;
@@ -11,22 +11,20 @@ export default function Product({ src, text, price, toHideButton, brandName, lis
 
     // if (window.location.pathname === '/' || window.location.pathname.) {
     images = require.context('../../../../images', true);
-    console.log(src[0].substr(1));
     img = images('.' + src[0].substr(1));
-    // } else {
-    //     img = src;
-    // }
+
 
     // shorten text 
     const shortText = text.split(' ').filter((item, index) => index < 10).join(' ');
 
     // product details
     const product = {
+        sku,
         img,
         name: text,
-        // price: parseFloat(price.substr(1)),
+        price: parseFloat(price.slice(0, -3)),
         quantity: 1,
-        // totalPrice: parseFloat(price.substr(1))
+        totalPrice: parseFloat(price.slice(0, -3))
     }
 
     const scrollToTop = () => {
@@ -51,7 +49,7 @@ export default function Product({ src, text, price, toHideButton, brandName, lis
 
     return (
         <div className='product-card-container'>
-            <Link onClick={scrollToTop} to={{ pathname: '/details', state: { src, price, toHideButton, brandName, listaAtribute, text, categorie, descriere } }}>
+            <Link onClick={scrollToTop} to={{ pathname: '/details', state: { sku, src, price, toHideButton, brandName, listaAtribute, text, categorie, descriere } }}>
                 <div className='product-img-container'>
                     <img src={img} alt='product' />
                     <div className='overlay'></div>
@@ -67,7 +65,7 @@ export default function Product({ src, text, price, toHideButton, brandName, lis
                 {
                     toHideButton ? null : (<Link onClick={scrollToTopAndAddToLocalStorage} to={{ pathname: '/cart', itemCart: product }} > <button>
                         <i class="fas fa-cart-plus"></i>
-                        <span>Add to cart</span>
+                        <span>ADAUGA IN COS</span>
                     </button></Link>)
                 }
 
