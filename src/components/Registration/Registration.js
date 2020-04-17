@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import axios from 'axios'
 import './Registration.css'
 
@@ -52,7 +53,6 @@ export default function Registration() {
         }
 
         if (validData) {
-            alert('GOOD STUFF!')
             const clientData = {
                 prenume,
                 nume,
@@ -75,7 +75,9 @@ export default function Registration() {
                 <input id='r-email' type='email' placeholder='Adresa Email *' required='true' />
                 <input id='r-pass' type='password' placeholder='Parola *' required='true' />
                 <input id='retype-pass' type='password' placeholder='Confirmati Parola *' required='true' />
-                <button onClick={(e) => createAccount(e)}>Creare Cont</button>
+                <Link to='/authorization'>
+                    <button onClick={(e) => createAccount(e)}>Creare Cont</button>
+                </Link>
             </div>
 
             <div className='registration-footer-copyright'>

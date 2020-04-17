@@ -4,6 +4,7 @@ import './ContactUs.css'
 
 import FooterComponent from '../../LandingPage/FooterComponent/FooterComponent'
 import CopyrightComponent from '../../LandingPage/CopyrightComponent/CopyrightComponent'
+import FontAwesome from 'react-fontawesome'
 
 export default function ContactUs() {
     return (
@@ -23,6 +24,7 @@ export default function ContactUs() {
                         <div className='address-wrapper'>
                             <div className='heading'>
                                 <i class="fas fa-map-marker-alt"></i>
+                                <FontAwesome name='fas fa-map-marker' />
                                 <span>Adresa</span>
                             </div>
                             <div className='content'>
@@ -32,6 +34,8 @@ export default function ContactUs() {
                         <div className='opening-h-wrapper'>
                             <div className='heading'>
                                 <i class="far fa-clock"></i>
+                                <FontAwesome name='fas fa-clock-o' />
+
                                 <span>Orele de lucru</span>
                             </div>
                             <div className='content'>
@@ -41,6 +45,7 @@ export default function ContactUs() {
                         <div className='phone-wrapper'>
                             <div className='heading'>
                                 <i class="fas fa-phone-alt"></i>
+                                <FontAwesome name='fas fa-phone' />
                                 <span>Telefon</span>
                             </div>
                             <div className='content'>
@@ -50,6 +55,8 @@ export default function ContactUs() {
                         <div className='email-wrapper'>
                             <div className='heading'>
                                 <i class="fas fa-envelope"></i>
+                                <FontAwesome name='fas fa-envelope' />
+
                                 <span>Email</span>
                             </div>
                             <div className='content'>

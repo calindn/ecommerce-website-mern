@@ -1,6 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import './Cart.css'
+let FontAwesome = require('react-fontawesome')
+
 
 export default function Cart() {
 
@@ -13,6 +15,9 @@ export default function Cart() {
         <Link style={{ textDecoration: 'none', }} to='/cart'>
             <div className='cart-container'>
                 <i class="fas fa-shopping-cart"></i>
+                <FontAwesome
+                    name="shopping-cart"
+                />
                 <span id='weirdSpan' className='num-items-incart'>{JSON.parse(localStorage.getItem('inCart') || "[]").length}</span>
             </div>
         </Link>

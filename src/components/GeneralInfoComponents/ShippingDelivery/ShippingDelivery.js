@@ -3,6 +3,7 @@ import './ShippingDelivery.css'
 
 import FooterComponent from '../../LandingPage/FooterComponent/FooterComponent'
 import CopyrightComponent from '../../LandingPage/CopyrightComponent/CopyrightComponent'
+import FontAwesome from 'react-fontawesome'
 
 export default function ShippingDelivery() {
     return (
@@ -54,6 +55,7 @@ export default function ShippingDelivery() {
             <div className='sd-ptext4-wrapper'>
                 <div className='sd-h4-3'>
                     <i class="fas fa-truck"></i>
+                    <FontAwesome name='fas fa-truck' />
                     <span>CAT COSTA TRANSPORTUL?</span>
                 </div>
                 <div className='sd-ptext4'>
@@ -65,6 +67,7 @@ export default function ShippingDelivery() {
             <div className='sd-ptext5-wrapper'>
                 <div className='sd-h4-4'>
                     <i class="fas fa-search"></i>
+                    <FontAwesome name='fas fa-search' />
                     <span>ÎMI POT URMARI COMANDA?</span>
                 </div>
                 <div className='sd-ptext5'>
@@ -79,6 +82,8 @@ export default function ShippingDelivery() {
             <div className='sd-ptext6-wrapper'>
                 <div className='sd-h4-5'>
                     <i class="far fa-calendar-check"></i>
+                    <FontAwesome name='fas fa-calendar' />
+
                     <span>DE UNDE VINE COMANDA MEA?</span>
                 </div>
                 <div className='sd-ptext6'>

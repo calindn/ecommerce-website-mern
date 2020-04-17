@@ -192,10 +192,10 @@ export default function ShoppingCart({ match, location }) {
                 </div>
                 <div className='checkout-wrapper'>
                     <div className='subtotal'>
-                        Subtotal: <span className='subtotal-val'>${subtotal}</span>
+                        Subtotal: <span className='subtotal-val'>{subtotal}lei</span>
                     </div>
                     <div className='total'>
-                        Total: <span className='total-val'>${total}</span>
+                        Total: <span className='total-val'>{total}lei</span>
                     </div>
                     <div className='control-btns-wrapper'>
                         <div>

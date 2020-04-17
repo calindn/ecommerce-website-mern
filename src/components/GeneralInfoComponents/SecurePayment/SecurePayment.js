@@ -3,6 +3,7 @@ import './SecurePayment.css'
 
 import FooterComponent from '../../LandingPage/FooterComponent/FooterComponent'
 import CopyrightComponent from '../../LandingPage/CopyrightComponent/CopyrightComponent'
+import FontAwesome from 'react-fontawesome'
 
 export default function SecurePayment() {
     return (
@@ -20,6 +21,7 @@ export default function SecurePayment() {
             <div className='sp-ssl-cert'>
                 <div className='sp-heading'>
                     <i class="fas fa-check-circle"></i>
+                    <FontAwesome name='fas fa-check-circle' />
                     <span>SSL CERTIFICATE</span>
                 </div>
                 <div className='sp-text'>
@@ -31,6 +33,8 @@ export default function SecurePayment() {
             <div className='sp-multi-gateway'>
                 <div className='sp-heading'>
                     <i class="fas fa-check-circle"></i>
+                    <FontAwesome name='fas fa-check-circle' />
+
                     <span>MULTIPLE GATEWAYS</span>
                 </div>
                 <div className='sp-text'>
@@ -41,6 +45,8 @@ export default function SecurePayment() {
             <div className='sp-customer-support'>
                 <div className='sp-heading'>
                     <i class="fas fa-check-circle"></i>
+                    <FontAwesome name='fas fa-check-circle' />
+
                     <span>24/7 CUSTOMER SUPPORT</span>
                 </div>
                 <div className='sp-text'>

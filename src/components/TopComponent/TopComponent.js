@@ -7,6 +7,7 @@ import Favorites from './Favorites/Favorites'
 import Cart from './Cart/Cart'
 import UserAuth from './UserAuth/UserAuth'
 
+
 export default function TopComponent() {
     return (
         <div className='topcomponent-container'>

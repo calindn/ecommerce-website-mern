@@ -1,6 +1,18 @@
 .userauth-container {
-    width: 50px;
-
+    position: relative;
+    left: 14px;
+    width: 113px;
+    display: flex;
+    justify-content: space-between;
+}
+#logActionSpan {
+    display: inline-block;
+    text-decoration: none;
+    position: relative;
+    left: 10px;
+    top: 5px;
+    width: 70px;
+    cursor: pointer;
 }
 
 .userauth-container i {
@@ -15,4 +27,12 @@
 .userauth-container i:hover {
     cursor: pointer;
     background-color: #000000;
+}
+
+#logActionSpan {
+    /* border: 2px solid red;
+    display: inline-block;
+    width: 200px !important;
+    position: absolute;
+    right: 200px; */
 }

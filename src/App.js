@@ -18,6 +18,9 @@ import Authorization from './components/Authorization/Authorization'
 import ForgotPassword from './components/ForgotPassword/ForgotPassword'
 import Registration from './components/Registration/Registration'
 import ShoppingCart from './components/ShoppingCart/ShoppingCart'
+import LoggedIn from './components/ShoppingCart/LoggedIn/LoggedIn';
+import Checkout from './components/ShoppingCart/Checkout/Checkout'
+import CardPayment from './components/StripeCardPayment/CardPayment';
 
 
 
@@ -39,6 +42,9 @@ function App() {
         <Route exact path='/forgotPass' component={ForgotPassword} />
         <Route exact path='/registration' component={Registration} />
         <Route exact path='/cart' component={ShoppingCart} />
+        <Route exact path='/logged_in' component={LoggedIn} />
+        <Route exact path='/checkout' component={Checkout} />
+        <Route exact path='/cardPay' component={CardPayment} />
 
       </Switch>
       {/* <Shop initalCategory='Laptops' />

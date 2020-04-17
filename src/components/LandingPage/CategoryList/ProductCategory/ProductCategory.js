@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 import './ProductCategory.css'
+var FontAwesome = require('react-fontawesome')
 
 
 export default function ProductCategory({ img, categoryName, iconClass, bgColor }) {
@@ -11,7 +12,10 @@ export default function ProductCategory({ img, categoryName, iconClass, bgColor 
                     {categoryName}
                 </div>
                 <div className='icon-wrapper'>
-                    <i className={"fas " + iconClass}></i>
+                    {/* <i className={"fas " + iconClass}></i> */}
+                    <FontAwesome
+                        name={iconClass}
+                    />
                 </div>
             </div>
             <div>

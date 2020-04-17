@@ -3,6 +3,7 @@ import './FooterComponent.css'
 import { Link } from 'react-router-dom'
 import Logo from '../../TopComponent/Logo/Logo'
 
+var FontAwesome = require('react-fontawesome')
 
 export default function FooterComponent() {
 
@@ -71,15 +72,19 @@ export default function FooterComponent() {
                     <div className='fc-c4-container'>
                         <div>
                             <i class="fas fa-map-marker-alt"></i><span>Glasgow D04 89GR</span>
+                            <FontAwesome name='fas fa-map-marker' />
                         </div>
                         <div>
                             <i class="fas fa-phone-alt"></i><span>(123) 456-7890</span>
+                            <FontAwesome name='fas fa-phone' />
                         </div>
                         <div>
+                            <FontAwesome name='fas fa-clock-o' />
                             <i class="far fa-clock"></i><span>7 zile pe saptamana de la 9:00 la 19:00</span>
                         </div>
                         <div>
                             <i class="far fa-envelope"></i><span>info@demolink.org</span>
+                            <FontAwesome name='fas fa-envelope-o' />
                         </div>
                     </div>
                 </div>

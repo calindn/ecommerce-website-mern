@@ -1,12 +1,19 @@
 import React from 'react'
 import axios from 'axios'
-import { Link } from 'react-router-dom'
+import jwt from 'jsonwebtoken'
+import { Link, useHistory } from 'react-router-dom'
 import './Authorization.css'
+import setAuthorizationToken from './setAuthorizationToken'
+import setLoggedInStatus from './setLoggedInStatus'
+
 
 import FooterComponent from '../LandingPage/FooterComponent/FooterComponent'
 import CopyrightComponent from '../LandingPage/CopyrightComponent/CopyrightComponent'
 
+
 export default function Authorization() {
+
+    let history = useHistory();
 
     const logIn = async () => {
         const email = document.querySelector('#l-email').value;
@@ -18,9 +25,20 @@ export default function Authorization() {
         };
 
         const res = await axios.post(`http://localhost:5000/api/v1/clients/login`, clientData);
-        console.log(res);
+        const token = res.data;
+        localStorage.setItem('jwtToken', token);
+        setAuthorizationToken(token);
+        if (token) {
+            setLoggedInStatus(true);
+            document.querySelector('#logActionSpan').textContent = 'Log out';
+            history.push('/logged_in');
+        }
+
     }
-    return (
+
+    const isLogged = JSON.parse(localStorage.getItem('userLoggedIn'));
+
+    return isLogged ? null : (
         <div className='authorization-container'>
             <div className='auth-heading'>
                 AUTORIZARE
