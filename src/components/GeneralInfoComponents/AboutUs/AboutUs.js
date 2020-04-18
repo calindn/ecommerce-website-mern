@@ -59,8 +59,7 @@ Cumpărați bunurile de care aveți nevoie în fiecare zi doar  în câteva clic
                 <div className='store-events'>
                     <div className='st-ev-1'>
                         <div className='stev1-icon-wrapper'>
-                            <i class="fas fa-search"></i>
-                            <FontAwesome name='fas fa-search' />
+                            <FontAwesome name='fas fa-search' className='store-events-wrapper-icons' />
                         </div>
                         <div className='heading-txt'>
                             PENTRU CONVENIENȚA ALEGERII
@@ -72,8 +71,7 @@ Ne gândim la comoditatea alegerii tale. Produsele noastre sunt furnizate cu rat
                     </div>
                     <div className='st-ev-2'>
                         <div className='stev2-icon-wrapper'>
-                            <i class="fas fa-car"></i>
-                            <FontAwesome name='fas fa-car' />
+                            <FontAwesome name='fas fa-car'  className='store-events-wrapper-icons' />
                         </div>
                         <div className='heading-txt'>
                             LIVRARE IN TOATE REGIUNILE
@@ -83,8 +81,7 @@ Ne gândim la comoditatea alegerii tale. Produsele noastre sunt furnizate cu rat
                     </div>
                     <div className='st-ev-3'>
                         <div className='stev3-icon-wrapper'>
-                            <i class="fas fa-thumbs-up"></i>
-                            <FontAwesome name='fas fa-thumbs-up'/>
+                            <FontAwesome name='fas fa-thumbs-up'  className='store-events-wrapper-icons'/>
                         </div>
                         <div className='heading-txt'>           
 CEA MAI MARE CALITATE A PRODUSELOR
@@ -97,8 +94,8 @@ Garantăm cea mai înaltă calitate a produselor pe care le comercializăm. Cât
             <div className='au-hrow2'></div>
             <div className='testimonials-wrapper'>
                 <div className='lbl'>TESTIMONIALE</div>
-                <div className='tquotes-icon'><i class="fas fa-quote-right"></i>
-                    <FontAwesome name='fas fa-quote-right' />
+                <div className='tquotes-icon'>
+                    <FontAwesome name='fas fa-quote-right' className='testimonials-icon' />
                 </div>
                 <div className='testimonials'>
                     <div>

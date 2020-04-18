@@ -122,22 +122,23 @@
 
 /*  checkout controls : subtotal, total, back to shop, checkout btns */
 .checkout-wrapper {
-    width: 25.5vw;
+    width: 25vw;
     position: relative;
-    left: 61.5vw;
+    left: 50.5vw;
     top: 4vh;
+
 }
 .checkout-wrapper .subtotal {
     width: 11vw;
     font-size: 19px;
     font-weight: bold;
     position: relative;
-    left: 14.2vw;
+    left: 25.2vw;
 }
 .checkout-wrapper .total {
     position: relative;
     top: 0.5vh;
-    left: 16.5vw;
+    left: 27.5vw;
     width: 8.7vw;
     font-size: 19px;
     font-weight: bold;
@@ -147,9 +148,12 @@
     display: flex;
     justify-content: space-between;
     position: relative;
-    right: 5px;
+    left: 25.3vw;
+    /* border: 2px solid blue; */
+    width: 10vw;
+
 }
-.checkout-wrapper .control-btns-wrapper  div button {
+.checkout-wrapper .control-btns-wrapper  .back button {
     background-color: #1e88e5;
     color: white;
     width: 8vw;
@@ -165,8 +169,55 @@
     outline: none;
     border:  none;
 }
-.checkout-wrapper .control-btns-wrapper  div button:hover {
+.checkout-wrapper .control-btns-wrapper  .back button:hover {
     background-color: #000000;
+}
+.checkout-wrapper .control-btns-wrapper .back {
+    position: absolute;
+    left: -64.55vw;
+    top:23vh;
+}
+.checkout-wrapper .control-btns-wrapper .payment-methods {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 30vh;
+}
+.checkout-wrapper .control-btns-wrapper .payment-methods .ridicare-sediu-container button {
+    background-color: #009cde;
+    color: white;
+    width: 8vw;
+    height: 4.6vh;
+    text-align: center;
+    font-weight: bold;
+    padding-top:2px;
+    margin-right: 10px;
+    display: inline-block;
+    cursor: pointer;
+    transition: .2s ease;
+    user-select: none;
+    outline: none;
+    border:  none;
+    position: relative;
+    right: 12.2vw;
+    top:-2vh;
+    border-radius: 5px;
+}
+.checkout-wrapper .control-btns-wrapper .payment-methods .ridicare-sediu-container button:hover {
+    background-color: #000000;
+    
+}
+.checkout-wrapper .control-btns-wrapper .payment-methods .stripe-container {
+    position: relative;
+    left: 2vw;
+    bottom: 6vh;
+    height: 6vh;
+}
+.checkout-wrapper .control-btns-wrapper .payment-methods .paypal-container {
+    position: relative;
+    right: 26.1vw;
+    bottom: 11.5vh;
+    width: 8vw;
 }
 .control-btns-wrapper div:nth-child(1)  {
     position: relative;
@@ -226,3 +277,4 @@
     width: 6.2vw;
 
 }
+

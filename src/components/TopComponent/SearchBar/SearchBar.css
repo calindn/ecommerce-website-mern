@@ -17,7 +17,7 @@
     border-right: none;
     padding-left: 10px;
 }
-.searchbar-container label i {
+.searchbar-container label .search-icon {
     background-color: black;
     color: white;
     width: 28px;
@@ -27,7 +27,7 @@
     justify-content: center;
     transition: .2s ease-in;
 }
-.searchbar-container label i:hover {
+.searchbar-container label .search-icon:hover {
     background-color: #1E88E5;
     cursor: pointer;
 }

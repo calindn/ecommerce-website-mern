@@ -5,7 +5,6 @@
     font-size: 19px;
     font-weight: bold;
     width: 31.5vw;
-    /* margin: auto; */
     margin-left: 11.15vw;
     margin-top: 10vh;
     position: relative;
@@ -64,7 +63,6 @@
     margin-left: 2.3vw;
 }
 .cu-another-wrapper .r-side {
-    /* border: 2px solid blue; */
     position: relative;
     left: 1.60vw;
 }
@@ -76,7 +74,6 @@
     font-weight: bold;
 }
 .r-side .form-wrapper {
-    /* margin-top: 1vh; */
     height: 52vh;
     width: 42.4vw;
     display: flex;
@@ -94,6 +91,7 @@
     height: 13.8vh;
     padding-left: 1.1vw;
     padding-top: 1.4vh;
+    z-index: 1213;
 }
 .r-side .form-wrapper button {
     width: 8vw;
@@ -106,6 +104,8 @@
     border: none;
     cursor: pointer;
     transition: .28s ease;
+    z-index: 1213;
+
 }
 .r-side .form-wrapper button:hover {
     background-color: #000000;

@@ -15,7 +15,7 @@
     cursor: pointer;
 }
 
-.userauth-container i {
+.userauth-container .fa-user-icon {
     color: white;
     background-color: #1E88E5;
     font-size: 14px;
@@ -24,7 +24,7 @@
     height: 27.28px;
     margin-top: 1.59px;
 }
-.userauth-container i:hover {
+.userauth-container .fa-user-icon:hover {
     cursor: pointer;
     background-color: #000000;
 }

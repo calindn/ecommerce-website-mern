@@ -6,16 +6,10 @@ import './ProductDetailView.css'
 
 export default class ProductDetailView extends React.Component {
 
-    componentDidMount() {
-
-    }
-
-
 
     render() {
 
         const { src, price, toHideButton, brandName, listaAtribute, text, categorie, descriere } = this.props.location.state;
-        // console.log('aaaaaaaaaaaaaaaaaaala', brandName);
         return (
             <div className='prod-detail-view-container'>
                 <div>

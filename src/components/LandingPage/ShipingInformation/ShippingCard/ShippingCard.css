@@ -6,7 +6,7 @@
     height: 32vh;
     /* margin-left: 25px; */
 }
-.shippingcard-container .icon-container i {
+.shippingcard-container .icon-container .shipping-info-icons-className {
     font-size: 3rem;
     margin-left: 1vw;
     color: #ffffff;

@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import './ShoppingCart.css'
 
 import FooterComponent from '../LandingPage/FooterComponent/FooterComponent'
@@ -7,8 +7,18 @@ import CopyrightComponent from '../LandingPage/CopyrightComponent/CopyrightCompo
 import EmptyCart from './EmptyCart/EmptyCart'
 
 
+import StripeCheckout from 'react-stripe-checkout'
+import axios from 'axios'
+import { toast } from 'react-toastify'
+import PayPalButton from '../PaypalPayment/PayPalButton'
+import FormDialog from './FormDialog/FormDialog'
+import jwt from 'jsonwebtoken'
+
+toast.configure();
+
 export default function ShoppingCart({ match, location }) {
 
+    const history = useHistory();
 
     const itemCart = location.itemCart;
     console.log('brandName ', itemCart);
@@ -123,6 +133,66 @@ export default function ShoppingCart({ match, location }) {
         setCart(ncp);
     }
 
+    // remove all items 
+    const clearCart = () => {
+        localStorage.removeItem('inCart');
+        setCart([]);
+    }
+
+
+
+    const [product] = useState({
+        name: 'Tesla Roadster',
+        price: 542,
+        description: 'Cool car'
+    })
+
+    console.log('------------------', cartProducts);
+    // handleToken from Stripe payment
+    const handleToken = async (token, product) => {
+
+        let t = total * .22;
+        const res = await axios.post(`http://localhost:5000/checkout`, {
+            token,
+            cartProducts,
+            t
+        });
+
+
+        //-------------------------------------------------------------------
+        const decodedClientData = jwt.decode(localStorage.getItem('jwtToken'));
+        const { userId, prenume, nume, email, grupClient, nrComenzi } = decodedClientData;
+        const order = {
+            produse: cartProducts.map((item) => { return { prod_id: item.sku, count: item.quantity } }),
+            pret_total: total,
+            data: '2002-12-09',
+            durata: 2,
+            transport: 'curier',
+            metoda_plata: 'card bancar',
+            client: userId,
+            reducere: []
+        }
+
+
+        // create order-------------------------------------------------------------
+        let result = await axios.post(`http://localhost:5000/api/v1/orders/`, order);
+        // update nr of orders for this client
+        result = await axios.put(`http://localhost:5000/api/v1/clients/${userId}`, { nr_comenzi: nrComenzi + 1 });
+
+
+        //-------------------------
+        const { status } = res.data;
+        if (status === 'success') {
+            toast('Success! Check email for details', { type: 'success' });
+            document.querySelector('#weirdSpan').innerHTML = '0';
+            clearCart();
+
+        } else {
+            toast('Something went wrong', { type: 'error' });
+        }
+
+    }
+
     return (
         cartProducts.length === 0 ? <EmptyCart /> :
             <div className='shopping-cart-container'>
@@ -198,13 +268,32 @@ export default function ShoppingCart({ match, location }) {
                         Total: <span className='total-val'>{total}lei</span>
                     </div>
                     <div className='control-btns-wrapper'>
-                        <div>
+                        <div className='back'>
                             <Link to='/'>
                                 <button className='back-ts'>INAPOI</button>
                             </Link>
                         </div>
-                        <div>
-                            <button className='checkout-btn'>TRIMITE COMANDA</button>
+                        <div className='payment-methods'>
+                            {/* <div>
+                                <button className='checkout-btn'>TRIMITE COMANDA</button>
+                            </div> */}
+                            <div className='ridicare-sediu-container'>
+                                {/* <button>Ridicare sediu</button> */}
+                                <FormDialog products={cartProducts} total={total} clearCart={clearCart} />
+                            </div>
+                            <div className='stripe-container'>
+                                <StripeCheckout
+                                    stripeKey="pk_test_NLBQh1kaJA8nytzJ5ZgwaXbq007fH2DEOs"
+                                    token={handleToken}
+                                    billingAddress
+                                    shippingAddress
+                                    amount={total * .22 * 100}
+                                    name={'Order Info'}
+                                />
+                            </div>
+                            <div className='paypal-container'>
+                                <PayPalButton products={cartProducts} totalInLei={total} clearCart={clearCart} history={history} total={Math.ceil(total * .22)} />
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -7,9 +7,10 @@ export default function SearchBar() {
         <div className='searchbar-container'>
             <label>
                 <input type='text' />
-                <i class="fas fa-search"></i>
+                {/* <i class="fas fa-search"></i> */}
                 <FontAwesome
                     name="search"
+                    className='search-icon'
                 />
             </label>
         </div>

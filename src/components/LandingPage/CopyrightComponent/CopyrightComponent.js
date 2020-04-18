@@ -12,12 +12,10 @@ export default function CopyrightComponent() {
 
     return (
         <div className='cpr-container'>
-            <i class="far fa-copyright"></i>
-            <FontAwesome style={{ 'color': 'white' }} name='fas fa-copyright' />
+            <FontAwesome name='fas fa-copyright' className='cpyright-component-icons' />
 
             <span> 2020 TechShop. Toate Drepturile Rezervate</span>
-            {/* <i onClick={() => topFunction()} id="toTop" class="fas fa-arrow-up"></i> */}
-            <FontAwesome style={{ 'color': 'white' }} name='fas fa-arrow-up' />
+            <FontAwesome onClick={() => topFunction()} id='toTop' name='fas fa-arrow-up' className='cpyright-component-icons' />
 
         </div>
     )

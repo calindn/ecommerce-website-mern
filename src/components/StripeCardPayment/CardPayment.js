@@ -43,7 +43,7 @@ export default function CardPayment() {
             <StripeCheckout
                 stripeKey="pk_test_NLBQh1kaJA8nytzJ5ZgwaXbq007fH2DEOs"
                 token={handleToken}
-                billingAddress
+                billingAddress={'asdasd'}
                 shippingAddress
                 amount={product.price * 100}
                 name={product.name}

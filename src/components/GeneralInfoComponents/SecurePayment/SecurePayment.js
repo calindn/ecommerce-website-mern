@@ -20,7 +20,6 @@ export default function SecurePayment() {
             </div>
             <div className='sp-ssl-cert'>
                 <div className='sp-heading'>
-                    <i class="fas fa-check-circle"></i>
                     <FontAwesome name='fas fa-check-circle' />
                     <span>SSL CERTIFICATE</span>
                 </div>
@@ -32,7 +31,6 @@ export default function SecurePayment() {
             </div>
             <div className='sp-multi-gateway'>
                 <div className='sp-heading'>
-                    <i class="fas fa-check-circle"></i>
                     <FontAwesome name='fas fa-check-circle' />
 
                     <span>MULTIPLE GATEWAYS</span>
@@ -44,7 +42,6 @@ export default function SecurePayment() {
             </div>
             <div className='sp-customer-support'>
                 <div className='sp-heading'>
-                    <i class="fas fa-check-circle"></i>
                     <FontAwesome name='fas fa-check-circle' />
 
                     <span>24/7 CUSTOMER SUPPORT</span>

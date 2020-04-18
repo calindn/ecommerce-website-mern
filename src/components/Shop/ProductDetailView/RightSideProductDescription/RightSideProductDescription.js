@@ -11,6 +11,7 @@ import product_img1 from '../../../LandingPage/MainImageSlider/assets/product_im
 import FooterComponent from '../../../LandingPage/FooterComponent/FooterComponent'
 import CopyrightComponent from '../../../LandingPage/CopyrightComponent/CopyrightComponent'
 import InfoTable from './InfoTable/InfoTable'
+import FontAwesome from 'react-fontawesome'
 
 export default function RightSideProductDescription({ state }) {
 
@@ -69,6 +70,7 @@ export default function RightSideProductDescription({ state }) {
                 <div className='brand'>Brand:    <span>{brandName}</span></div>
                 <div className='sku'>SKU:     <span>{sku}</span></div>
                 <div className='rspd-title'><h1>{text}</h1></div>
+                <div className='timp-livrare'><span>Timp Livrare Curier:</span> 2zile lucratoare national, 7zile maxim international</div>
                 <div className='rspd-price'>{price}</div>
                 <div className='hrow'></div>
             </section>
@@ -78,8 +80,8 @@ export default function RightSideProductDescription({ state }) {
                 <div className='add-to-cart-wrapper'>
                     <Link onClick={scrollToTopAndAddToLocalStorage} to={{ pathname: '/cart', itemCart: product }} >
                         <button>
-                            <i class="fas fa-cart-plus"></i>
-                            <span>Add to cart</span>
+                            <FontAwesome className='cart-plus-icon-cname' name='fas fa-cart-plus' />
+                            <span>Adauga in cos</span>
                         </button>
                     </Link>
 
@@ -93,7 +95,7 @@ export default function RightSideProductDescription({ state }) {
                 </div>
             </section>
             <section className='related-section'>
-                <div className='rel-prod-lbl'>RELATED PRODUCTS</div>
+                <div className='rel-prod-lbl'>PRODUSE ASEMANATOARE</div>
                 <div className='rel-prods'>
                     {
                         relatedProducts.map((product) => {

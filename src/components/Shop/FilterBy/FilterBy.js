@@ -3,6 +3,7 @@ import axios from 'axios'
 
 import './FilterBy.css'
 import Checkbox from '@material-ui/core/Checkbox';
+import FontAwesome from 'react-fontawesome';
 
 export default function FilterBy({ handleFilterByClick, handleClear, category }) {
 
@@ -105,7 +106,7 @@ export default function FilterBy({ handleFilterByClick, handleClear, category })
                 </div>
                 <div className='brands-container'>
                     <div onClick={() => showBrands()} className='brands-label'>Brands</div>
-                    <div onClick={() => showBrands()} className='arrow-down-i'><i class="fas fa-chevron-down"></i></div>
+                    <div onClick={() => showBrands()} className='arrow-down-i'><FontAwesome name='fas fa-chevron-down' /></div>
                     <div id='brand-list'>
                         {
                             brandList !== undefined ?

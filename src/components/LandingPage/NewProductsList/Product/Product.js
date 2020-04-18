@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import './Product.css'
+import FontAwesome from 'react-fontawesome';
 
 
 export default function Product({ sku, src, text, price, toHideButton, brandName, listaAtribute, categorie, descriere }) {
@@ -54,7 +55,8 @@ export default function Product({ sku, src, text, price, toHideButton, brandName
                     <img src={img} alt='product' />
                     <div className='overlay'></div>
                     <div className='view-container'>
-                        <i class="fas fa-eye"></i>
+                        {/* <i class="fas fa-eye"></i> */}
+                        <FontAwesome name='fas fa-eye' className='eye-icon' />
                     </div>
                 </div>
             </Link>
@@ -64,7 +66,7 @@ export default function Product({ sku, src, text, price, toHideButton, brandName
                 <p className='price'>{price}</p>
                 {
                     toHideButton ? null : (<Link onClick={scrollToTopAndAddToLocalStorage} to={{ pathname: '/cart', itemCart: product }} > <button>
-                        <i class="fas fa-cart-plus"></i>
+                        <FontAwesome name='fas fa-cart-plus' className='fa-cart-icon-className' />
                         <span>ADAUGA IN COS</span>
                     </button></Link>)
                 }

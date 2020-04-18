@@ -8,7 +8,7 @@ export default function ShippingCard({ htext, text, iconClassName, classes, hcla
         <div className={'shippingcard-container ' + posClass}>
             <div className='icon-container'>
                 {/* <i className={'fas ' + iconClassName}></i> */}
-                <FontAwesome name={iconClassName} />
+                <FontAwesome name={iconClassName} className='shipping-info-icons-className' />
             </div>
             <div className='sc-right-side'>
                 <div className={'sc-heading-txt ' + hclass}>

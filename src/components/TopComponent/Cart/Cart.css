@@ -5,10 +5,10 @@
     position: relative;
     left: 20px;
 }
-.cart-container:hover i {
+.cart-container:hover .sh-cart-icon {
     background-color: #000000;
 }
-.cart-container i {
+.cart-container .sh-cart-icon {
     color: white;
     background-color: #1E88E5;
     font-size: 14px;

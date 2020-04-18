@@ -71,20 +71,18 @@ export default function FooterComponent() {
                 <div className='content4'>
                     <div className='fc-c4-container'>
                         <div>
-                            <i class="fas fa-map-marker-alt"></i><span>Glasgow D04 89GR</span>
-                            <FontAwesome name='fas fa-map-marker' />
+                            <FontAwesome name='fas fa-map-marker' className='fc-c4-container-icons' /><span>Glasgow D04 89GR</span>
+
                         </div>
                         <div>
-                            <i class="fas fa-phone-alt"></i><span>(123) 456-7890</span>
-                            <FontAwesome name='fas fa-phone' />
+                            <FontAwesome name='fas fa-phone' className='fc-c4-container-icons' /><span>(123) 456-7890</span>
+
                         </div>
                         <div>
-                            <FontAwesome name='fas fa-clock-o' />
-                            <i class="far fa-clock"></i><span>7 zile pe saptamana de la 9:00 la 19:00</span>
+                            <FontAwesome name='fas fa-clock-o' className='fc-c4-container-icons' /><span>7 zile pe saptamana de la 9:00 la 19:00</span>
                         </div>
                         <div>
-                            <i class="far fa-envelope"></i><span>info@demolink.org</span>
-                            <FontAwesome name='fas fa-envelope-o' />
+                            <FontAwesome name='fas fa-envelope-o' className='fc-c4-container-icons' /><span>info@demolink.org</span>
                         </div>
                     </div>
                 </div>

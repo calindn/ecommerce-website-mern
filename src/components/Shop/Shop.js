@@ -215,7 +215,7 @@ export default function Shop({ initalCategory, match }) {
                         <FilterBy handleFilterByClick={handleFilterByClick} handleClear={handleClear} category={categoryName} />
                     </div>
                     <div className='information-container'>
-                        <Categories label='INFORMATION' list={infoList} />
+                        <Categories label='INFORMATII' list={infoList} />
                     </div>
                 </div>
                 <div className='shop-main-container'>

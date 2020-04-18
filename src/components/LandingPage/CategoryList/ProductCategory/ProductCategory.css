@@ -15,7 +15,7 @@
     left: 0.009vw;
 }
 
-.productcateg-container div i {
+.productcateg-container div .categ-icons-class {
     position: relative;
    font-size: 2.7rem;
    top: 70px;

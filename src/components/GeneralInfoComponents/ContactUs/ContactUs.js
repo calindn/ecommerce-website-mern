@@ -23,7 +23,6 @@ export default function ContactUs() {
                     <div className='wrapper'>
                         <div className='address-wrapper'>
                             <div className='heading'>
-                                <i class="fas fa-map-marker-alt"></i>
                                 <FontAwesome name='fas fa-map-marker' />
                                 <span>Adresa</span>
                             </div>
@@ -33,7 +32,6 @@ export default function ContactUs() {
                         </div>
                         <div className='opening-h-wrapper'>
                             <div className='heading'>
-                                <i class="far fa-clock"></i>
                                 <FontAwesome name='fas fa-clock-o' />
 
                                 <span>Orele de lucru</span>
@@ -44,7 +42,6 @@ export default function ContactUs() {
                         </div>
                         <div className='phone-wrapper'>
                             <div className='heading'>
-                                <i class="fas fa-phone-alt"></i>
                                 <FontAwesome name='fas fa-phone' />
                                 <span>Telefon</span>
                             </div>
@@ -54,7 +51,6 @@ export default function ContactUs() {
                         </div>
                         <div className='email-wrapper'>
                             <div className='heading'>
-                                <i class="fas fa-envelope"></i>
                                 <FontAwesome name='fas fa-envelope' />
 
                                 <span>Email</span>

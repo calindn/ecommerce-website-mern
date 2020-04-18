@@ -15,6 +15,7 @@ export default function ProductCategory({ img, categoryName, iconClass, bgColor 
                     {/* <i className={"fas " + iconClass}></i> */}
                     <FontAwesome
                         name={iconClass}
+                        className='categ-icons-class'
                     />
                 </div>
             </div>
