@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react'
+import React, { Fragment, useState, useEffect } from 'react'
 import { Link, useHistory } from 'react-router-dom'
 import './ShoppingCart.css'
 
@@ -21,7 +21,6 @@ export default function ShoppingCart({ match, location }) {
     const history = useHistory();
 
     const itemCart = location.itemCart;
-    console.log('brandName ', itemCart);
 
     let inCart = JSON.parse(localStorage.getItem('inCart') || "[]");
 
@@ -33,8 +32,126 @@ export default function ShoppingCart({ match, location }) {
 
     const [cartProducts, setCart] = useState(originalCartProducts);
     const [subtotal, setSubTotal] = useState(sum);
+    const [subtotalWithDiscounts, setSubtotalWithDiscounts] = useState(sum);
+    const [totalWithDiscounts, setTotalWithDiscounts] = useState(sum);
+    const [costTransport, setCostTransport] = useState(15);
     const [total, setTotal] = useState(sum);
     const [placeholderValue, setPlaceholderValue] = useState('');
+
+    const decodedClientData = jwt.decode(localStorage.getItem('jwtToken'));
+    const { userId, prenume, nume, email, grupClient, nrComenzi } = decodedClientData;
+    // handleToken from Stripe payment
+    const handleToken = async (token, product) => {
+
+        let t = total * .22;
+        const res = await axios.post(`https://randomname.life/checkout`, {
+            token,
+            cartProducts,
+            t
+        });
+
+
+        //-------------------------------------------------------------------
+
+        const order = {
+            produse: cartProducts.map((item) => { return { prod_id: item.sku, count: item.quantity } }),
+            pret_total: total,
+            data: '2002-12-09',
+            durata: 2,
+            transport: 'curier',
+            metoda_plata: 'card bancar',
+            client: userId,
+            reducere: []
+        }
+
+
+        // create order-------------------------------------------------------------
+        let result = await axios.post(`https://randomname.life/api/v1/orders/`, order);
+        // update nr of orders for this client
+        result = await axios.put(`https://randomname.life/api/v1/clients/${userId}`, { nr_comenzi: nrComenzi + 1 });
+
+
+        //-------------------------
+        const { status } = res.data;
+        if (status === 'success') {
+            toast('Success! Check email for details', { type: 'success' });
+            document.querySelector('#weirdSpan').innerHTML = '0';
+            clearCart();
+
+        } else {
+            toast('Something went wrong', { type: 'error' });
+        }
+
+    }
+
+
+    useEffect(() => {
+        const calculateTransportCost = () => {
+            //  in medie un lapotp are ~ 3kg
+            // in medie un televizor are ~ 16kg
+            // in medie o tableta are ~ .5kg
+            // in medie un smartphone are ~ .2kg
+            // in mediu un smartwatch are ~ .05kg
+
+            // livrare sub 500RON: 15lei + 1leu / kg daca greutatea > 4kg
+            let c = 15;
+            let greutate = 0;
+            cartProducts.map((item) => {
+                switch (item.categorie) {
+                    case "smartphone":
+                        greutate += item.quantity * 0.2;
+                        break;
+                    case "smartwatch":
+                        greutate += item.quantity * 0.05;
+                        break;
+                    case "tableta":
+                        greutate += item.quantity * 0.5;
+                        break;
+                    case "laptop":
+                        greutate += item.quantity * 3;
+                        break;
+                    case "televizor":
+                        greutate += item.quantity * 16;
+                        break;
+                    default:
+
+                }
+            });
+
+            if (greutate > 4) {
+                c += greutate * 1;
+                c = Math.ceil(c);
+            }
+            // TRANSPORT GRATUIT PESTE 500 RON
+            if (subtotal > 500) {
+                c = 0;
+            }
+            // DISCOUNT 5% DIN TOTAL PENTRU COMANDA > 2000 RON && DISCOUNT 10% pentru client gold (transport gratuit implicit)
+            if (subtotal > 2000 && grupClient === 'gold') {
+                setSubtotalWithDiscounts(subtotal - subtotal * 0.05 - subtotal * 0.1);
+                setTotalWithDiscounts(subtotal - subtotal * 0.05 - subtotal * 0.1);
+            } // DISCOUNT 5% DIN TOTAL PENTRU COMANDA > 2000 RON
+            else if (subtotal > 2000) {
+                setSubtotalWithDiscounts(subtotal - subtotal * 0.05);
+                setTotalWithDiscounts(subtotal - subtotal * 0.05);
+            } // DISCOUNT 10% pentru client gold si transport gratuit
+            else if (grupClient === 'gold') {
+                setSubtotalWithDiscounts(subtotal - subtotal * 0.1);
+                setTotalWithDiscounts(subtotal - subtotal * 0.1);
+                c = 0;
+                console.log('INTRU AICI');
+                console.log(subtotal);
+            } else {
+                setSubtotalWithDiscounts(subtotal);
+                setTotalWithDiscounts(subtotal + c);
+            }
+            setCostTransport(c);
+            setTotal(subtotal + c)
+        }
+        calculateTransportCost();
+
+    }, [cartProducts])
+
 
 
 
@@ -56,6 +173,17 @@ export default function ShoppingCart({ match, location }) {
 
         const tp = cartProducts[idx].totalPrice;
 
+        if (subtotal > 2000 && grupClient === 'gold') {
+            setSubtotalWithDiscounts(subtotal - tp - subtotal * 0.05 - subtotal * 0.1);
+            setTotalWithDiscounts(subtotal - tp - subtotal * 0.05 - subtotal * 0.1);
+        } else if (subtotal > 2000) {
+            setSubtotalWithDiscounts(subtotal - tp - subtotal * 0.05);
+            setTotalWithDiscounts(subtotal - tp - subtotal * 0.05);
+        }
+        else {
+            setSubtotalWithDiscounts(subtotal - tp);
+            setTotalWithDiscounts(total - tp);
+        }
         setSubTotal(subtotal - tp);
         setTotal(total - tp)
         setCart(cartProducts.filter((item, i) => i !== idx))
@@ -65,7 +193,6 @@ export default function ShoppingCart({ match, location }) {
     const changeQuantity = (e, idx) => {
         console.log(e.target.value);
         setPlaceholderValue('' + e.target.value);
-        console.log('index', idx);
         const product = cartProducts[idx];
         const price = product.price;
         const newTotal = price * parseInt(e.target.value);
@@ -106,12 +233,25 @@ export default function ShoppingCart({ match, location }) {
             nst = subtotal;
         }
 
+        if (nst > 2000 && grupClient === 'gold') {
+            setSubtotalWithDiscounts(nst - nst * 0.05 - nst * 0.1);
+            setTotalWithDiscounts(nst - nst * 0.05 - nst * 0.1);
+        }
+        else if (nst > 2000) {
+            setSubtotalWithDiscounts(nst - nst * 0.05);
+            setTotalWithDiscounts(nst - nst * 0.05);
+        } else {
+            setSubtotalWithDiscounts(nst);
+            setTotalWithDiscounts(nt);
+        }
         setSubTotal(nst);
         setTotal(nt);
+
         cartProducts[idx].totalPrice = newTotalPrice;
         cartProducts[idx].quantity = newQuantity;
         const ncp = [...cartProducts];
         setCart(ncp);
+
 
     }
     const incrementQuantity = (idx) => {
@@ -125,12 +265,24 @@ export default function ShoppingCart({ match, location }) {
         let nt = total + priceProduct;
         let nst = subtotal + priceProduct;
 
+        if (nst > 2000 && grupClient === 'gold') {
+            setSubtotalWithDiscounts(nst - nst * 0.05 - nst * 0.1);
+            setTotalWithDiscounts(nst - nst * 0.05 - nst * 0.1);
+        }
+        else if (nst > 2000) {
+            setSubtotalWithDiscounts(nst - nst * 0.05);
+            setTotalWithDiscounts(nst - nst * 0.05);
+        } else {
+            setSubtotalWithDiscounts(nst);
+            setTotalWithDiscounts(nt);
+        }
         setSubTotal(nst);
         setTotal(nt);
         cartProducts[idx].totalPrice = newTotalPrice;
         cartProducts[idx].quantity = newQuantity;
         const ncp = [...cartProducts];
         setCart(ncp);
+
     }
 
     // remove all items 
@@ -141,57 +293,6 @@ export default function ShoppingCart({ match, location }) {
 
 
 
-    const [product] = useState({
-        name: 'Tesla Roadster',
-        price: 542,
-        description: 'Cool car'
-    })
-
-    console.log('------------------', cartProducts);
-    // handleToken from Stripe payment
-    const handleToken = async (token, product) => {
-
-        let t = total * .22;
-        const res = await axios.post(`http://localhost:5000/checkout`, {
-            token,
-            cartProducts,
-            t
-        });
-
-
-        //-------------------------------------------------------------------
-        const decodedClientData = jwt.decode(localStorage.getItem('jwtToken'));
-        const { userId, prenume, nume, email, grupClient, nrComenzi } = decodedClientData;
-        const order = {
-            produse: cartProducts.map((item) => { return { prod_id: item.sku, count: item.quantity } }),
-            pret_total: total,
-            data: '2002-12-09',
-            durata: 2,
-            transport: 'curier',
-            metoda_plata: 'card bancar',
-            client: userId,
-            reducere: []
-        }
-
-
-        // create order-------------------------------------------------------------
-        let result = await axios.post(`http://localhost:5000/api/v1/orders/`, order);
-        // update nr of orders for this client
-        result = await axios.put(`http://localhost:5000/api/v1/clients/${userId}`, { nr_comenzi: nrComenzi + 1 });
-
-
-        //-------------------------
-        const { status } = res.data;
-        if (status === 'success') {
-            toast('Success! Check email for details', { type: 'success' });
-            document.querySelector('#weirdSpan').innerHTML = '0';
-            clearCart();
-
-        } else {
-            toast('Something went wrong', { type: 'error' });
-        }
-
-    }
 
     return (
         cartProducts.length === 0 ? <EmptyCart /> :
@@ -262,10 +363,13 @@ export default function ShoppingCart({ match, location }) {
                 </div>
                 <div className='checkout-wrapper'>
                     <div className='subtotal'>
-                        Subtotal: <span className='subtotal-val'>{subtotal}lei</span>
+                        Subtotal: <span className='subtotal-val'>{subtotalWithDiscounts}lei</span>
+                    </div>
+                    <div className='transport'>
+                        Transport: <span>{costTransport}lei</span>
                     </div>
                     <div className='total'>
-                        Total: <span className='total-val'>{total}lei</span>
+                        Total: <span className='total-val'>{totalWithDiscounts}lei</span>
                     </div>
                     <div className='control-btns-wrapper'>
                         <div className='back'>

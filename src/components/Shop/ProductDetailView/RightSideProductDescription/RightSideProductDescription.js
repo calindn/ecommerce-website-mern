@@ -13,16 +13,18 @@ import CopyrightComponent from '../../../LandingPage/CopyrightComponent/Copyrigh
 import InfoTable from './InfoTable/InfoTable'
 import FontAwesome from 'react-fontawesome'
 
+import ReactGa from 'react-ga'
+
 export default function RightSideProductDescription({ state }) {
 
     const [relatedProducts, setRelatedProducts] = useState([])
 
-    const { sku, src, price, brandName, listaAtribute, text, categorie, descriere } = state;
+    const { sku, src, pret, brandName, listaAtribute, text, categorie, descriere } = state;
 
     useEffect(() => {
         console.log('brand name in rightside product description is ', brandName);
         const getRelatedProducts = async (categorie) => {
-            const res = await axios.get(`http://localhost:5000/api/v1/products/category/${categorie}`);
+            const res = await axios.get(`https://randomname.life/api/v1/products/category/${categorie}`);
             let { data } = res;
             let related = data.filter((item) => item.nume !== text);
 
@@ -51,6 +53,11 @@ export default function RightSideProductDescription({ state }) {
         localStorage.setItem('inCart', JSON.stringify(inCartOld))
 
         document.querySelector('#weirdSpan').innerHTML = inCartOld.length;
+
+        ReactGa.event({
+            category: 'Button',
+            action: `A apasat butonul add to cart din pagina /details  pentru produsul ${text}`
+        })
     }
 
     const images = require.context('../../../../images', true);
@@ -58,10 +65,11 @@ export default function RightSideProductDescription({ state }) {
     const product = {
         sku,
         img,
+        categorie,
         name: text,
-        price: parseFloat(price.slice(0, -3)),
+        price: parseFloat(pret.slice(0, -3)),
         quantity: 1,
-        totalPrice: parseFloat(price.slice(0, -3))
+        totalPrice: parseFloat(pret.slice(0, -3))
     }
 
     return (
@@ -71,7 +79,7 @@ export default function RightSideProductDescription({ state }) {
                 <div className='sku'>SKU:     <span>{sku}</span></div>
                 <div className='rspd-title'><h1>{text}</h1></div>
                 <div className='timp-livrare'><span>Timp Livrare Curier:</span> 2zile lucratoare national, 7zile maxim international</div>
-                <div className='rspd-price'>{price}</div>
+                <div className='rspd-price'>{pret} {categorie === 'smartwatch' ? 'TVA 0%' : 'cu TVA'}</div>
                 <div className='hrow'></div>
             </section>
             <section className='section2'>

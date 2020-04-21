@@ -6,6 +6,8 @@ import './Registration.css'
 import FooterComponent from '../LandingPage/FooterComponent/FooterComponent'
 import CopyrightComponent from '../LandingPage/CopyrightComponent/CopyrightComponent'
 
+import ReactGa from 'react-ga';
+
 export default function Registration() {
 
     const [submited, setSubmited] = useState(false);
@@ -59,9 +61,16 @@ export default function Registration() {
                 email,
                 parola
             };
-            await axios.post(`http://localhost:5000/api/v1/clients/register`, clientData);
+            await axios.post(`https://randomname.life/api/v1/clients/register`, clientData);
             window.location.reload();
         }
+
+
+        // FOR GOOGLE ANALYTICS
+        ReactGa.event({
+            category: 'Button',
+            action: 'Clicked the register button'
+        })
 
     }
     return (

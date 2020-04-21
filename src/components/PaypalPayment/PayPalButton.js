@@ -31,9 +31,9 @@ export default class PaypalButton extends React.Component {
 
 
             // create order-------------------------------------------------------------
-            let result = await axios.post(`http://localhost:5000/api/v1/orders/`, order);
+            let result = await axios.post(`https://randomname.life/api/v1/orders/`, order);
             // update nr of orders for this client
-            result = await axios.put(`http://localhost:5000/api/v1/clients/${userId}`, { nr_comenzi: nrComenzi + 1 });
+            result = await axios.put(`https://randomname.life/api/v1/clients/${userId}`, { nr_comenzi: nrComenzi + 1 });
         }
 
         const onCancel = (data) => {

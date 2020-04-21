@@ -9,6 +9,8 @@ import setLoggedInStatus from './setLoggedInStatus'
 
 import FooterComponent from '../LandingPage/FooterComponent/FooterComponent'
 import CopyrightComponent from '../LandingPage/CopyrightComponent/CopyrightComponent'
+import ReactGa from 'react-ga'
+
 
 
 export default function Authorization() {
@@ -24,7 +26,7 @@ export default function Authorization() {
             parola
         };
 
-        const res = await axios.post(`http://localhost:5000/api/v1/clients/login`, clientData);
+        const res = await axios.post(`https://randomname.life/api/v1/clients/login`, clientData);
         const token = res.data;
         localStorage.setItem('jwtToken', token);
         setAuthorizationToken(token);
@@ -33,6 +35,13 @@ export default function Authorization() {
             document.querySelector('#logActionSpan').textContent = 'Log out';
             history.push('/logged_in');
         }
+
+
+        // FOR GOOGLE ANALYTICS
+        ReactGa.event({
+            category: 'Button',
+            action: 'A apasat butonul de login'
+        })
 
     }
 

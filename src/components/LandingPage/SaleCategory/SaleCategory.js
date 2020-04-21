@@ -11,10 +11,10 @@ export default class SaleCategory extends Component {
         return (
             <div className='salecateg-container'>
                 <div>
-                    <SaleCard btnPresent={true} img={sale1} text='OBTINE EXTRA 20% REDUCERE LA PRIMA COMANDA' />
+                    <SaleCard btnPresent={true} img={sale1} text='OBTINE DISCOUNT 5% REDUCERE LA COMENZI > 2000LEI' />
                 </div>
                 <div>
-                    <SaleCard btnPresent={false} img={sale3} position='top' text='EXTRA REDUCERE SALVEAZA 50% ' />
+                    <SaleCard btnPresent={false} img={sale3} position='top' text='TRANSPORT GRATUIT LA COMENZI > 500LEI ' />
                 </div>
             </div>
         )

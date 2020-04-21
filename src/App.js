@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import { Switch, Route } from 'react-router-dom';
 
 import TopComponent from './components/TopComponent/TopComponent';
@@ -22,9 +22,26 @@ import LoggedIn from './components/ShoppingCart/LoggedIn/LoggedIn';
 import CardPayment from './components/StripeCardPayment/CardPayment';
 import FormDialog from './components/ShoppingCart/FormDialog/FormDialog';
 
+import ReactGa from 'react-ga';
+
 
 
 function App() {
+
+  useEffect(() => {
+    ReactGa.initialize('UA-164071727-1')
+
+    ReactGA.timing({
+      category: "Load Performace",
+      variable: "Some metric",
+      value: "Value of Metric"
+    })
+
+    // to report pageview
+    ReactGa.pageview(window.location.pathname + window.location.search);
+
+  }, [window.location.pathname + window.location.search])
+
   return (
     <Fragment>
       <TopComponent />

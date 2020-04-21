@@ -135,9 +135,16 @@
     position: relative;
     left: 25.2vw;
 }
-.checkout-wrapper .total {
+.checkout-wrapper .transport {
+    font-size: 19px;
+    font-weight: bold;
     position: relative;
     top: 0.5vh;
+    left: 26vw;
+}
+.checkout-wrapper .total {
+    position: relative;
+    top: 1vh;
     left: 27.5vw;
     width: 8.7vw;
     font-size: 19px;

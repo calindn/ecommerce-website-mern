@@ -55,7 +55,7 @@ export default function LoggedIn({ match, location }) {
                             <img id='comanda-img' src='https://www.svgrepo.com/show/160067/delivered-box-verification-symbol.svg' />
                         </div>
                         <div>
-                            101 comenzi plasate
+                            120 comenzi plasate
                         </div>
                     </div>
 

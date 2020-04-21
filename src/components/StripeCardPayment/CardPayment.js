@@ -17,7 +17,7 @@ export default function CardPayment() {
     })
 
     const handleToken = async (token) => {
-        const res = await axios.post(`http://localhost:5000/checkout`, {
+        const res = await axios.post(`https://randomname.life/checkout`, {
             token,
             product
         });

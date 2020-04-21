@@ -40,7 +40,7 @@ export default function FormDialog({ products, discounts, total, clearCart }) {
             client: userId,
             reducere: []
         }
-        let res = await axios.post(`http://localhost:5000/api/v1/orders/`, order);
+        let res = await axios.post(`https://randomname.life/api/v1/orders/`, order);
 
         clearCart();
         setOpen(false);

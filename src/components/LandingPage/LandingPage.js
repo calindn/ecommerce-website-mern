@@ -37,7 +37,7 @@ export default class LandingPage extends Component {
     }
 
     getProducts = async () => {
-        let res = await axios.get('http://localhost:5000/api/v1/products/');
+        let res = await axios.get('https://randomname.life/api/v1/products/');
         let { data } = res;
 
         const copy = [...data];

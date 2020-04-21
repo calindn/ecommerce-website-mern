@@ -19,6 +19,7 @@ import ProductCategory from '../LandingPage/CategoryList/ProductCategory/Product
 import Product from '../LandingPage/NewProductsList/Product/Product'
 
 
+const ENDPOINT = 'http://64.225.109.79:5000/'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -49,13 +50,14 @@ export default function Shop({ initalCategory, match }) {
 
     let [prodArr, setProdArr] = useState([]);
     let [originalProdArr, setOriginalProdArr] = useState([]);
+
     useEffect(() => {
         // get products by category 
         let c;
         const getProducts = async () => {
             c = window.location.pathname.substr(6);
             let lc = c.toLocaleLowerCase();
-            let res = await axios.get(`http://localhost:5000/api/v1/products/category/${lc}`);
+            let res = await axios.get(`https://randomname.life/api/v1/products/category/${lc}`);
             let { data } = res;
             setProdArr([...data]);
             setCategoryName(c);
